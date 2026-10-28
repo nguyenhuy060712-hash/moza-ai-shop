@@ -1,0 +1,24 @@
+{
+  "_ghi_chu": "Lựa chọn tả giọng riêng của Mai (SPEC.md bản 2.5, #41, F-38). Sửa file này để thêm hoặc bớt lựa chọn, không cần sửa mã. 'ten' hiện trên màn hình; 'ta' là cụm chữ ghép vào câu tả gửi Google (Google khuyên câu tả ngắn 1–2 câu, chỉ nói nét cố định của giọng; cảm xúc từng câu Mai tự chọn lúc nói). 'gioi' của giới tính là giá trị gửi Google (female / male).",
+  "gioi_tinh": [
+    { "id": "nu", "ten": "Nữ", "ta": "Một người phụ nữ", "gioi": "female" },
+    { "id": "nam", "ten": "Nam", "ta": "Một người đàn ông", "gioi": "male" }
+  ],
+  "tuoi": [
+    { "id": "20-25", "ten": "20–25 tuổi", "ta": "khoảng 22 tuổi" },
+    { "id": "25-35", "ten": "25–35 tuổi", "ta": "khoảng 28 tuổi" },
+    { "id": "35-45", "ten": "35–45 tuổi", "ta": "khoảng 40 tuổi" }
+  ],
+  "vung": [
+    { "id": "bac", "ten": "Miền Bắc (Hà Nội)", "ta": "giọng miền Bắc chuẩn Hà Nội" },
+    { "id": "trung", "ten": "Miền Trung", "ta": "giọng miền Trung nhẹ, dễ nghe" },
+    { "id": "nam", "ten": "Miền Nam (Sài Gòn)", "ta": "giọng miền Nam Sài Gòn" }
+  ],
+  "chat_giong": [
+    { "id": "am_ap", "ten": "Ấm áp, thân thiện", "ta": "ấm áp, thân thiện, gần gũi như chị bán hàng online" },
+    { "id": "tuoi_tan", "ten": "Tươi tắn, năng động", "ta": "tươi tắn, năng động, rõ ràng như người dẫn livestream" },
+    { "id": "chung_chac", "ten": "Chững chạc, tin cậy", "ta": "chững chạc, rõ ràng, tạo cảm giác tin cậy" },
+    { "id": "diu_dang", "ten": "Dịu dàng, nhẹ nhàng", "ta": "dịu dàng, nhẹ nhàng, nói chậm rãi" }
+  ],
+  "mac_dinh": { "gioi_tinh": "nu", "tuoi": "25-35", "vung": "bac", "chat_giong": "am_ap" }
+}

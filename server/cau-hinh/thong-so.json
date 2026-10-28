@@ -1,0 +1,197 @@
+{
+  "_ghi_chu": "Bộ thông số sản phẩm theo danh mục (SPEC.md F-51 nhóm 3, #61). Mỗi thông số: ten (hiện trên màn hình và thẻ sản phẩm cho AI), kieu (mot = chọn một, nhieu = chọn nhiều, chu = ô chữ), lua_chon (khóa → tên), co_ghi (chọn nhiều kèm một ô chữ ghi thêm, lưu ở <khóa>_ghi). Sửa tên, thêm lựa chọn, thêm bộ được; KHÔNG đổi khóa đã dùng (dữ liệu cũ lưu theo khóa). Bán loại hàng mới = thêm bộ ở đây và danh mục ở danh-muc.json.",
+  "thong_so": {
+    "doi_tuong": {
+      "ten": "Đối tượng",
+      "kieu": "mot",
+      "lua_chon": {
+        "nu": "Nữ",
+        "nam": "Nam",
+        "unisex": "Unisex",
+        "be_gai": "Bé gái",
+        "be_trai": "Bé trai"
+      }
+    },
+    "chat_lieu": {
+      "ten": "Chất liệu",
+      "kieu": "nhieu",
+      "co_ghi": true,
+      "lua_chon": {
+        "cotton": "Cotton",
+        "linen": "Linen (lanh)",
+        "dui": "Đũi",
+        "lua": "Lụa",
+        "voan": "Voan",
+        "kate": "Kate",
+        "kaki": "Kaki",
+        "jean": "Jean (denim)",
+        "len": "Len",
+        "ni": "Nỉ",
+        "thun": "Thun",
+        "polyester": "Polyester",
+        "spandex": "Spandex",
+        "tuyet_mua": "Tuyết mưa",
+        "da": "Da",
+        "khac": "Khác"
+      }
+    },
+    "kieu_dang": {
+      "ten": "Kiểu dáng / form",
+      "kieu": "mot",
+      "lua_chon": {
+        "om": "Ôm",
+        "suong": "Suông",
+        "rong": "Rộng / oversize",
+        "croptop": "Croptop",
+        "dang_dai": "Dáng dài",
+        "chu_a": "Chữ A",
+        "baby_doll": "Babydoll",
+        "ong_dung": "Ống đứng",
+        "ong_rong": "Ống rộng",
+        "ong_con": "Ống côn"
+      }
+    },
+    "do_co_gian": {
+      "ten": "Độ co giãn",
+      "kieu": "mot",
+      "lua_chon": {
+        "khong": "Không co giãn",
+        "it": "Co giãn ít",
+        "nhieu": "Co giãn nhiều"
+      }
+    },
+    "hoa_tiet": {
+      "ten": "Họa tiết",
+      "kieu": "mot",
+      "lua_chon": {
+        "tron": "Trơn",
+        "ke": "Kẻ",
+        "caro": "Caro",
+        "hoa": "Hoa",
+        "cham_bi": "Chấm bi",
+        "in_hinh": "In hình",
+        "chu": "Chữ",
+        "theu": "Thêu",
+        "khac": "Khác"
+      }
+    },
+    "do_day": {
+      "ten": "Độ dày",
+      "kieu": "mot",
+      "lua_chon": {
+        "mong": "Mỏng",
+        "vua": "Vừa",
+        "day": "Dày"
+      }
+    },
+    "mua": {
+      "ten": "Mùa",
+      "kieu": "mot",
+      "lua_chon": {
+        "he": "Hè",
+        "dong": "Đông",
+        "quanh_nam": "Quanh năm"
+      }
+    },
+    "phong_cach": {
+      "ten": "Phong cách / dịp mặc",
+      "kieu": "nhieu",
+      "lua_chon": {
+        "di_lam": "Đi làm",
+        "di_choi": "Đi chơi",
+        "dao_pho": "Dạo phố",
+        "du_tiec": "Dự tiệc",
+        "o_nha": "Ở nhà",
+        "the_thao": "Thể thao",
+        "di_bien": "Đi biển"
+      }
+    },
+    "xuat_xu": {
+      "ten": "Xuất xứ",
+      "kieu": "chu"
+    },
+    "huong_dan_giat": {
+      "ten": "Hướng dẫn giặt, bảo quản",
+      "kieu": "chu"
+    },
+    "cach_trong": {
+      "ten": "Cách trồng",
+      "kieu": "mot",
+      "lua_chon": {
+        "huu_co": "Hữu cơ",
+        "vietgap": "VietGAP",
+        "an_toan": "Rau an toàn",
+        "thuong": "Thông thường"
+      }
+    },
+    "bao_quan": {
+      "ten": "Bảo quản",
+      "kieu": "chu"
+    }
+  },
+  "bo": {
+    "quan_ao": [
+      "doi_tuong",
+      "chat_lieu",
+      "kieu_dang",
+      "do_co_gian",
+      "hoa_tiet",
+      "do_day",
+      "mua",
+      "phong_cach",
+      "xuat_xu",
+      "huong_dan_giat"
+    ],
+    "phu_kien": [
+      "doi_tuong",
+      "chat_lieu",
+      "hoa_tiet",
+      "phong_cach",
+      "xuat_xu",
+      "huong_dan_giat"
+    ],
+    "rau_cu": [
+      "xuat_xu",
+      "cach_trong",
+      "bao_quan"
+    ]
+  },
+  "cot_bang_size": {
+    "chieu_cao": {
+      "ten": "Chiều cao",
+      "don_vi": "cm"
+    },
+    "can_nang": {
+      "ten": "Cân nặng",
+      "don_vi": "kg"
+    },
+    "vong_nguc": {
+      "ten": "Vòng ngực",
+      "don_vi": "cm"
+    },
+    "vong_eo": {
+      "ten": "Vòng eo",
+      "don_vi": "cm"
+    },
+    "vong_mong": {
+      "ten": "Vòng mông",
+      "don_vi": "cm"
+    },
+    "dai_ao": {
+      "ten": "Dài áo",
+      "don_vi": "cm"
+    },
+    "dai_quan": {
+      "ten": "Dài quần",
+      "don_vi": "cm"
+    },
+    "rong_vai": {
+      "ten": "Rộng vai",
+      "don_vi": "cm"
+    },
+    "dai_tay": {
+      "ten": "Dài tay",
+      "don_vi": "cm"
+    }
+  }
+}

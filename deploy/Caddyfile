@@ -1,0 +1,9 @@
+# Caddy đứng trước Moza AI Shop: tự lấy HTTPS, bắt đăng nhập, rồi chuyển vào MOZA đang nghe ở 127.0.0.1:5173.
+# MOZA KHÔNG có đăng nhập riêng (thiết kế cho một laptop) → TUYỆT ĐỐI không mở thẳng cổng 5173 ra internet.
+# Thay shop.ten-mien-cua-ban.vn (phải trùng MOZA_DIA_CHI_NGOAI trong moza.service) và mật khẩu băm (tạo: caddy hash-password).
+shop.ten-mien-cua-ban.vn {
+	basic_auth {
+		chushop $2a$14$THAY_BANG_MAT_KHAU_DA_BAM
+	}
+	reverse_proxy 127.0.0.1:5173
+}

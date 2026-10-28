@@ -1,0 +1,10 @@
+node_modules/
+.env
+data/
+config.json
+*.log
+scripts/thu-m0/ket-qua/
+scripts/thu-facebook/ket-qua/
+docs/nghe-bh10/
+docs/anh-bh10/
+docs/nghe-bh11/

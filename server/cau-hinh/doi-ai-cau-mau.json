@@ -1,0 +1,120 @@
+{
+  "_ghi_chu": "Câu mẫu của Đội AI dẫn (SPEC.md F-46, F-48, bản bán hàng). Sửa file này để đổi lời, không cần sửa mã; khởi động lại phần mềm để có hiệu lực. {chinh} = tên trợ lý AI chính, {ai} = nhân vật khác trong đội (MOZA chọn luân phiên), {ten} = tên gọi người xem, {ten_shop} = tên shop trong Cài đặt. Mỗi mục là danh sách lựa chọn, MOZA chọn luân phiên cho khỏi lặp. Một lựa chọn là danh sách lượt [người nói, lời]; lời được dùng <laugh>, <chuckle>, |ừ|. chua_tra_loi: khi người dẫn gọi \"Mai ơi\" mà AI chưa soạn được câu trả lời (sau câu đệm). Không gọi người dẫn thật là anh hay chị. Bán hàng (F-46): vua_chot ({mon} = món vừa chốt, {ten} có thể là nhiều tên), vua_het ({mon} = phân loại vừa hết), con_it ({mon}, {so} = còn bán được lúc đọc — MOZA chỉ đọc khi ≤ ngưỡng sắp hết), nhac_cach_chot ({vi_du} = câu chốt mẫu của món đang nói, ví dụ \"chốt 12 đen M\" — MOZA lấy phân loại còn hàng; {so_mau} = số món), mo_tin_nhan ({ten} = tối đa 3 tên người đã nhận thẻ riêng ≥ 4 phút mà chưa bấm — câu trung tính, không nói \"chưa trả lời / chưa mở / chưa xác nhận\"). Radio {ten_shop} (F-49, F-50) — chỉ dùng ở kịch bản Radio: {gio} = giờ Việt Nam lúc nói, {bai} = tên bài hát, {loi} = lời chúc của người xem. bao_gio: sau nhạc hiệu lúc mở màn và đầu vòng mới (phải có câu tự giới thiệu là trợ lý AI); bao_gio_ngan: sau mỗi bài hát; doc_loi_chuc: đọc một lời chúc; gioi_thieu_bai: sau các lời chúc; moi_bai_hat: không có lời chúc; cam_on_loi_chuc: có lời chúc mà chưa có bài hát nào.",
+  "tu_nhan_ai": [
+    [["{chinh}", "Cả nhà nhớ giúp tụi mình là đội trợ lý AI của {ten_shop} nha, cần người thật thì nhắn shop."]],
+    [["{ai}", "Ai mới vào thì chào nha, tụi mình là đội trợ lý AI của {ten_shop}."]],
+    [["{chinh}", "Nhắc lại cho cả nhà: tụi mình là trợ lý AI của {ten_shop}, đơn vẫn có người của shop kiểm."]]
+  ],
+  "cau_dem": [
+    [["{ai}", "Câu này hay nè, {chinh} trả lời liền đi!"]],
+    [["{ai}", "Hỏi trúng chỗ cả nhà đang thắc mắc luôn đó. {chinh} ơi?"]],
+    [["{ai}", "Để {chinh} xem cho chính xác nha!"]]
+  ],
+  "chao_ten": [
+    [["{ai}", "Ơ, chào {ten} vừa vào live nè!"], ["{chinh}", "Chào cả nhà, ở lại xem đồ đẹp với tụi mình luôn!"]],
+    [["{ai}", "Có {ten} vừa ghé chơi kìa {chinh}!"], ["{chinh}", "Chào mừng cả nhà, ưng món nào cứ bình luận hỏi liền!"]],
+    [["{chinh}", "Em chào {ten}, cảm ơn cả nhà đã vào live!"], ["{ai}", "Ở lại xem hết nha, hôm nay nhiều mẫu xinh lắm! <laugh>"]]
+  ],
+  "vong_moi": [
+    [["{ai}", "Cả nhà mới vào ơi, tụi mình là đội trợ lý AI của {ten_shop}, cùng điểm lại mấy mẫu hot nè!"]],
+    [["{chinh}", "Ai mới vào live thì chào nha, tụi em là trợ lý AI của {ten_shop}. Mình điểm lại từ đầu cho cả nhà!"]]
+  ],
+  "chao_ket": [
+    [["{chinh}", "Cảm ơn cả nhà đã xem live hôm nay!"], ["{ai}", "Ai đã chốt nhớ mở tin nhắn của shop để xác nhận đơn nha!"], ["{chinh}", "Hẹn gặp lại cả nhà buổi sau!"]]
+  ],
+  "do_vui_dung": [
+    [["{ai}", "Chúc mừng {ten} trả lời đúng rồi nè! <laugh>"]],
+    [["{chinh}", "Giỏi quá, {ten} trúng phóc luôn!"]]
+  ],
+  "do_vui_chua_ai": [
+    [["{ai}", "Chưa ai trúng hết, lần sau nhanh tay nha cả nhà! <chuckle>"]]
+  ],
+  "chua_tra_loi": [
+    [["{chinh}", "Câu này {chinh} xin kiểm lại cho thật chắc rồi báo cả nhà ngay!"]],
+    [["{chinh}", "Để {chinh} xem kỹ lại thông tin, lát nữa trả lời cả nhà cho chuẩn!"]]
+  ],
+  "vua_chot": [
+    [["{ai}", "{ten} vừa chốt {mon} rồi nè!"]],
+    [["{chinh}", "Ting ting, {ten} vừa chốt {mon}! Shop nhắn tin xác nhận liền nha."]],
+    [["{ai}", "Nhanh tay quá, {ten} đã chốt {mon}!"]],
+    [["{chinh}", "{ten} vừa chốt {mon}! Shop nhắn riêng rồi đó, xem cả mục Tin nhắn chờ nha."]]
+  ],
+  "da_nghe_yeu_cau": [
+    [["{ai}", "{ten} muốn {viec} nè, đợi xíu cả nhà."]],
+    [["{chinh}", "Có {ten} muốn {viec}, mình cho xem liền."]]
+  ],
+  "tu_van_size": [
+    [["{chinh}", "{ten} ơi, theo bảng size của shop thì lấy {co} nha."]],
+    [["{ai}", "{ten} ơi, bảng size của shop ghi size {co} là vừa đó."]]
+  ],
+  "tu_van_size_giua": [
+    [["{chinh}", "{ten} nằm giữa {co1} và {co2} theo bảng size của shop: thích mặc ôm thì {co1}, thích thoải mái thì {co2}."]],
+    [["{ai}", "{ten} ơi, bảng size của shop thì bạn ở giữa {co1} với {co2} — ôm người lấy {co1}, rộng rãi lấy {co2}."]]
+  ],
+  "tu_van_size_gom": [
+    [["{chinh}", "{cau}"]]
+  ],
+  "dem_chot": [
+    [["{ai}", "Đã {so} người chốt {mon} buổi này rồi nè cả nhà!"]],
+    [["{chinh}", "{mon} có {so} người chốt rồi, ai ưng thì bình luận chốt kèm màu, size nha."]]
+  ],
+  "cam_on_cuoi": [
+    [["{chinh}", "Cảm ơn {ten} và cả nhà đã chốt đơn buổi này, shop nhắn riêng xác nhận từng người nha."]],
+    [["{ai}", "Cảm ơn {ten} cùng mọi người đã ủng hộ shop hôm nay!"]]
+  ],
+  "sap_toi": [
+    [["{ai}", "Lát nữa là {mon_sau} nha, cả nhà ở lại xem nè."]],
+    [["{chinh}", "Món sau là {mon_sau}, ai đang chờ thì đừng rời live nha."]]
+  ],
+  "binh_chon_mo": [
+    [["{chinh}", "Cả nhà bình chọn giúp shop nè: thích {a} thì gõ A, thích {b} thì gõ B!"], ["{ai}", "Một phút thôi nha, màu nào thắng bạn mẫu mặc liền."]]
+  ],
+  "binh_chon_ket": [
+    [["{chinh}", "{mau} thắng rồi cả nhà ơi, bạn mẫu mặc {mau} cho cả nhà xem liền!"]],
+    [["{ai}", "Cả nhà chọn {mau} nè, mặc lên cho mọi người xem ngay."]]
+  ],
+  "binh_chon_hoa": [
+    [["{chinh}", "Hai màu hòa nhau luôn, để người dẫn chọn giúp cả nhà nha!"]]
+  ],
+  "mo_tin_nhan": [
+    [["{chinh}", "{ten} ơi, shop đã nhắn riêng rồi nè, xem giúp shop mục Tin nhắn chờ trong Messenger nha."]],
+    [["{ai}", "Gửi {ten}: tin của shop tới rồi đó, có khi nằm trong mục Tin nhắn chờ, mở xem giúp shop một chút."]],
+    [["{chinh}", "À {ten} ơi, shop gửi tin riêng cho mình rồi, ngó qua mục Tin nhắn chờ giúp shop với."]]
+  ],
+  "vua_het": [
+    [["{ai}", "{mon} vừa hết rồi cả nhà ơi!"]],
+    [["{chinh}", "Cập nhật nè: {mon} vừa hết hàng, cả nhà xem màu, size khác giúp em nha."]]
+  ],
+  "con_it": [
+    [["{ai}", "{mon} chỉ còn {so} chiếc thôi đó!"]],
+    [["{chinh}", "{mon} còn đúng {so} chiếc, ai ưng thì chốt sớm nè."]]
+  ],
+  "nhac_cach_chot": [
+    [["{chinh}", "Cả nhà muốn lấy thì bình luận chữ chốt, số áo, màu và size, ví dụ {vi_du}."], ["{ai}", "Chốt xong shop nhắn tin riêng xác nhận liền, nhớ mở tin nhắn chờ nha!"]],
+    [["{ai}", "Nhắc lại cách chốt nè: chốt, số áo, màu, size. Ví dụ {vi_du}. Shop nhắn riêng giữ hàng liền."]]
+  ],
+  "bao_gio": [
+    [["{chinh}", "Bây giờ là {gio}. Quý vị và các bạn đang nghe Radio {ten_shop}!"], ["{ai}", "Tụi mình là đội trợ lý AI của {ten_shop}, cùng điểm qua hàng mới cho cả nhà đây."]],
+    [["{chinh}", "{gio} rồi, Radio {ten_shop} xin chào quý vị và các bạn!"], ["{ai}", "Ai mới vào thì chào nha, tụi mình là đội trợ lý AI của {ten_shop}. Mình điểm lại hàng mới từ đầu cho cả nhà!"]]
+  ],
+  "bao_gio_ngan": [
+    [["{chinh}", "Bây giờ là {gio}. Radio {ten_shop} vẫn đang đồng hành cùng quý vị và các bạn."]],
+    [["{ai}", "{gio} rồi cả nhà ơi, Radio {ten_shop} tiếp tục đây."]]
+  ],
+  "doc_loi_chuc": [
+    [["{ai}", "Bạn {ten} nhắn: {loi}"]],
+    [["{ai}", "Có lời nhắn của bạn {ten}: {loi}"]],
+    [["{ai}", "Còn bạn {ten} gửi lời: {loi}"]]
+  ],
+  "gioi_thieu_bai": [
+    [["{chinh}", "Và đây là bài hát \"{bai}\", gửi tới {ten} cùng cả nhà!"]],
+    [["{chinh}", "Cảm ơn những lời nhắn thật ấm áp. Bài hát \"{bai}\" xin gửi tới {ten} và quý vị!"]]
+  ],
+  "moi_bai_hat": [
+    [["{chinh}", "Còn bây giờ, mời quý vị và các bạn cùng thư giãn với bài hát \"{bai}\"."]],
+    [["{chinh}", "Nghỉ tay một chút nha cả nhà, mời cùng nghe bài hát \"{bai}\"."]]
+  ],
+  "cam_on_loi_chuc": [
+    [["{chinh}", "Cảm ơn {ten} đã gửi lời nhắn. Chúc cả nhà một ngày thật vui!"]]
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "_ghi_chu": "BH11 F-127 (docs/11 mục 6.4): tông giọng trên sóng — dùng chung cho Mai (ghép cuối lời dặn của miệng) và Đội AI (cách nói mặc định khi lượt không ghi cách nói). Chỉ dẫn viết bằng lời cho model, không đọc ra. 'tu_viet' lấy chữ chủ shop gõ (≤ 400 ký tự).",
+  "mac_dinh": "mc_vua",
+  "tu_viet_toi_da": 400,
+  "tong": [
+    {
+      "ma": "deu_ro",
+      "ten": "Đều, rõ ràng",
+      "mo_ta": "Nói đều, rõ từng con số — hợp khách lớn tuổi, hàng có nhiều số đo.",
+      "chi_dan": "Nói chậm vừa, đều giọng, nhả rõ từng chữ và từng con số (giá, size, số món). Câu ngắn, ít từ cảm thán, không kéo dài giọng. Nghỉ ngắn sau mỗi con số để người xem kịp nghe.",
+      "cach_noi_doi": "đều, rõ ràng, chậm vừa"
+    },
+    {
+      "ma": "mc_vua",
+      "ten": "MC vừa",
+      "mo_ta": "Như MC bán hàng quen thuộc: vui, nhanh vừa, không gào.",
+      "chi_dan": "Nói như MC livestream bán hàng: thân thiện, nhịp nhanh vừa, có lên có xuống tự nhiên, cười trong giọng. Gọi người xem là \"cả nhà\". Không hét, không lặp \"nhé\" ở cuối câu.",
+      "cach_noi_doi": "thân thiện, nhanh vừa, tươi"
+    },
+    {
+      "ma": "mc_soi_noi",
+      "ten": "MC sôi nổi",
+      "mo_ta": "Năng lượng cao — hợp lúc mở màn, xả hàng, nhiều người chốt.",
+      "chi_dan": "Nói hào hứng, năng lượng cao, nhịp nhanh, nhấn mạnh từ khóa (màu, size, cách chốt). Giữ con số chính xác và rõ dù nói nhanh. Không bịa sự khan hiếm, không nói \"sắp hết\" khi chưa có số liệu.",
+      "cach_noi_doi": "hào hứng, rộn ràng, nhanh"
+    },
+    {
+      "ma": "am_ap",
+      "ten": "Ấm áp, tư vấn",
+      "mo_ta": "Nhẹ nhàng như người tư vấn riêng — hợp hàng cao cấp, đồ mẹ và bé.",
+      "chi_dan": "Nói ấm, chậm, nhẹ nhàng như đang tư vấn riêng cho từng người: hỏi han, giải thích lý do chọn size / màu. Không thúc ép mua. Câu tròn ý, giọng mềm.",
+      "cach_noi_doi": "ấm áp, chậm, nhẹ nhàng"
+    },
+    {
+      "ma": "tu_viet",
+      "ten": "Tự viết",
+      "mo_ta": "Shop tự mô tả cách nói (tối đa 400 ký tự).",
+      "chi_dan": "",
+      "cach_noi_doi": ""
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "_ghi_chu": "Danh mục sản phẩm (SPEC.md F-51, #61). khoa: lưu trong san_pham.danh_muc, không đổi khi đã dùng. ten: hiện trên màn hình. goi: chữ gọi trên live trước số sản phẩm (#60: \"áo số 12\"). bo: bộ thông số trong thong-so.json. don_vi (tùy chọn, ví dụ kg): hàng bán theo cân — giá hiện '25.000đ/kg', mỗi món một gói '1 kg', khách chốt 'chốt 50' (1 kg) hoặc 'chốt 50 2kg'. Thêm danh mục mới bằng cách thêm dòng, không cần sửa mã.",
+  "danh_muc": [
+    { "khoa": "ao_thun", "ten": "Áo thun", "goi": "áo", "bo": "quan_ao" },
+    { "khoa": "ao_so_mi", "ten": "Áo sơ mi", "goi": "áo", "bo": "quan_ao" },
+    { "khoa": "ao_kieu", "ten": "Áo kiểu", "goi": "áo", "bo": "quan_ao" },
+    { "khoa": "ao_khoac", "ten": "Áo khoác", "goi": "áo", "bo": "quan_ao" },
+    { "khoa": "ao_len", "ten": "Áo len", "goi": "áo", "bo": "quan_ao" },
+    { "khoa": "quan_jean", "ten": "Quần jean", "goi": "quần", "bo": "quan_ao" },
+    { "khoa": "quan_tay_kaki", "ten": "Quần tây / kaki", "goi": "quần", "bo": "quan_ao" },
+    { "khoa": "quan_short", "ten": "Quần short", "goi": "quần", "bo": "quan_ao" },
+    { "khoa": "chan_vay", "ten": "Chân váy", "goi": "chân váy", "bo": "quan_ao" },
+    { "khoa": "dam_vay_lien", "ten": "Đầm / váy liền", "goi": "đầm", "bo": "quan_ao" },
+    { "khoa": "do_bo", "ten": "Đồ bộ", "goi": "set", "bo": "quan_ao" },
+    { "khoa": "do_ngu", "ten": "Đồ ngủ", "goi": "đồ ngủ", "bo": "quan_ao" },
+    { "khoa": "do_the_thao", "ten": "Đồ thể thao", "goi": "đồ", "bo": "quan_ao" },
+    { "khoa": "do_lot", "ten": "Đồ lót", "goi": "mẫu", "bo": "quan_ao" },
+    { "khoa": "phu_kien", "ten": "Phụ kiện", "goi": "mẫu", "bo": "phu_kien" },
+    { "khoa": "rau_la", "ten": "Rau lá", "goi": "rau", "bo": "rau_cu", "don_vi": "kg" },
+    { "khoa": "cu_qua", "ten": "Củ quả", "goi": "món", "bo": "rau_cu", "don_vi": "kg" }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "_ghi_chu": "Bộ mẫu tin Utility của MOZA (SPEC.md F-67, F-69, #89, #99, #120). Nút 'Tạo bộ mẫu tin' ở Cài đặt → Facebook gửi cả bộ cho Meta duyệt (thường vài giây). Chỉ thông tin đơn, không một chữ mời chào để Meta xếp đúng loại UTILITY (tra 27/9/2026: mẫu có chữ tiếp thị bị xếp MARKETING, không gửi được ngoài 24 giờ). Tham số {{1}}, {{2}}… điền theo thứ tự 'tham_so'. Nút POSTBACK mang payload cố định; MOZA tìm đơn theo người bấm. BH8 (F-98): thêm da_xac_nhan, chuan_bi_gui (F-99), hoi_mac (F-100).",
+  "da_gui": {
+    "ten": "moza_don_da_gui",
+    "noi_dung": "Chào {{1}}, đơn {{2}} của bạn tại {{3}} đã được gửi đi, mã vận đơn {{4}}. Cảm ơn bạn đã mua hàng!",
+    "tham_so": [
+      "ten_nhan",
+      "ma",
+      "ten_shop",
+      "ma_van_don"
+    ],
+    "nut": []
+  },
+  "cho_xac_nhan": {
+    "ten": "moza_don_cho_xac_nhan",
+    "noi_dung": "Đơn {{1}} tại {{2}}: {{3}}, tổng {{4}}, đang chờ bạn xác nhận. Shop giữ hàng tới {{5}}.",
+    "tham_so": [
+      "ma",
+      "ten_shop",
+      "mon",
+      "tong_tien",
+      "giu_den"
+    ],
+    "nut": [
+      {
+        "tieu_de": "✅ Xác nhận",
+        "payload": "MAU_XAC_NHAN"
+      },
+      {
+        "tieu_de": "✏️ Sửa đơn",
+        "payload": "MAU_SUA"
+      },
+      {
+        "tieu_de": "Không lấy",
+        "payload": "MAU_KHONG_LAY"
+      }
+    ]
+  },
+  "da_huy": {
+    "ten": "moza_don_da_huy",
+    "noi_dung": "Đơn {{1}} tại {{2}} đã hủy vì quá giờ giữ hàng, hàng đã về kho.",
+    "tham_so": [
+      "ma",
+      "ten_shop"
+    ],
+    "nut": []
+  },
+  "da_xac_nhan": {
+    "ten": "moza_don_da_xac_nhan",
+    "noi_dung": "Đơn {{1}} tại {{2}} đã được xác nhận, tổng {{3}}. Shop sẽ đóng gói và báo mã vận đơn khi gửi.",
+    "tham_so": [
+      "ma",
+      "ten_shop",
+      "tong_tien"
+    ],
+    "nut": []
+  },
+  "chuan_bi_gui": {
+    "ten": "moza_chuan_bi_gui",
+    "noi_dung": "Shop {{1}} chuẩn bị gửi đơn {{2}} ({{3}}, tổng {{4}}). Bạn nhận hàng trong tuần này được không?",
+    "tham_so": [
+      "ten_shop",
+      "ma",
+      "mon",
+      "tong_tien"
+    ],
+    "nut": [
+      {
+        "tieu_de": "Gửi đi",
+        "payload": "MAU_GUI_DI"
+      },
+      {
+        "tieu_de": "Hẹn ngày khác",
+        "payload": "MAU_HEN_NGAY"
+      }
+    ]
+  },
+  "hoi_mac": {
+    "ten": "moza_hoi_mac",
+    "noi_dung": "Đơn {{1}} tại {{2}} đã tới tay bạn chưa, mặc có vừa không?",
+    "tham_so": [
+      "ma",
+      "ten_shop"
+    ],
+    "nut": [
+      {
+        "tieu_de": "Vừa lắm",
+        "payload": "MAU_VUA"
+      },
+      {
+        "tieu_de": "Hơi chật",
+        "payload": "MAU_CHAT"
+      },
+      {
+        "tieu_de": "Hơi rộng",
+        "payload": "MAU_RONG"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_ghi_chu": "Khách giả SOẠN SẴN (0 đồng) cho Phòng diễn tập — SPEC.md F-15 mở rộng, #94. Mỗi tính cách là danh sách luật {khi, lam}. 'khi' là tình huống MOZA nhận từ tin cuối của shop: the_giu (thẻ giữ hàng), xin_thong_tin, the_don (thẻ đơn có nút Xác nhận), chon_pl (chọn phân loại), het_hang, doi_chon, nhac (tin nhắc đơn), bao_huy (có nút Đặt lại), mme_hoi (Đúng / Không phải), the_moi, khac. 'lam': {bam: tiền tố payload} · {cham: số thứ tự nút / trả lời nhanh} · {nhan: chữ, có {ten} {sdt} {dia_chi}} · {im: true}; kèm 'cho' [giây ít, giây nhiều] tùy chọn; 'lan' = làm lần thứ mấy của tình huống đó (mặc định mọi lần). Chọn tính cách theo tỷ trọng, cố định theo người (chạy lại ra cùng kết quả). Claude Code soạn 28/9/2026.",
+  "cho_mac_dinh": [3, 8],
+  "tinh_cach": [
+    { "id": "de_tinh", "ten": "Dễ tính", "trong": 4, "luat": [
+      { "khi": "the_giu", "lam": { "bam": "GIU_LEN_DON" } },
+      { "khi": "xin_thong_tin", "lam": { "nhan": "{ten}, {sdt}, {dia_chi}" } },
+      { "khi": "the_don", "lam": { "bam": "XAC_NHAN_DON" } },
+      { "khi": "chon_pl", "lam": { "cham": 0 } },
+      { "khi": "het_hang", "lam": { "cham": 0 } },
+      { "khi": "nhac", "lam": { "bam": "XAC_NHAN_DON" } },
+      { "khi": "mme_hoi", "lam": { "bam": "DUNG_NGUOI" } },
+      { "khi": "the_moi", "lam": { "bam": "GIU_MOI" } }
+    ] },
+    { "id": "bam_ngay", "ten": "Bấm ngay", "trong": 2, "luat": [
+      { "khi": "the_giu", "lam": { "bam": "GIU_LEN_DON" }, "cho": [1, 2] },
+      { "khi": "xin_thong_tin", "lam": { "nhan": "{ten}\n{sdt}\n{dia_chi}" }, "cho": [2, 4] },
+      { "khi": "the_don", "lam": { "bam": "XAC_NHAN_DON" }, "cho": [1, 2] },
+      { "khi": "chon_pl", "lam": { "cham": 0 } },
+      { "khi": "het_hang", "lam": { "cham": 0 } }
+    ] },
+    { "id": "tung_phan", "ten": "Gửi từng phần", "trong": 1, "luat": [
+      { "khi": "the_giu", "lam": { "bam": "GIU_LEN_DON" } },
+      { "khi": "xin_thong_tin", "lan": 1, "lam": { "nhan": "Tên người nhận: {ten}, số {sdt}, địa chỉ {dia_chi}" } },
+      { "khi": "the_don", "lam": { "bam": "XAC_NHAN_DON" } },
+      { "khi": "chon_pl", "lam": { "cham": 0 } }
+    ] },
+    { "id": "doi_size", "ten": "Đổi size", "trong": 1, "luat": [
+      { "khi": "the_giu", "lan": 1, "lam": { "bam": "DOI_MON" } },
+      { "khi": "doi_chon", "lam": { "cham": 0 } },
+      { "khi": "the_giu", "lam": { "bam": "GIU_LEN_DON" } },
+      { "khi": "khac", "lan": 1, "lam": { "bam": "GIU_LEN_DON" } },
+      { "khi": "xin_thong_tin", "lam": { "nhan": "{ten}, {sdt}, {dia_chi}" } },
+      { "khi": "the_don", "lam": { "bam": "XAC_NHAN_DON" } },
+      { "khi": "chon_pl", "lam": { "cham": 0 } }
+    ] },
+    { "id": "khong_lay", "ten": "Không lấy nữa", "trong": 1, "luat": [
+      { "khi": "the_giu", "lam": { "bam": "KHONG_LAY" } },
+      { "khi": "chon_pl", "lam": { "im": true } }
+    ] },
+    { "id": "sua_don", "ten": "Bấm Sửa đơn", "trong": 1, "luat": [
+      { "khi": "the_giu", "lam": { "bam": "GIU_LEN_DON" } },
+      { "khi": "xin_thong_tin", "lam": { "nhan": "{ten}, {sdt}, {dia_chi}" } },
+      { "khi": "the_don", "lan": 1, "lam": { "bam": "SUA_DON" } },
+      { "khi": "the_don", "lam": { "bam": "XAC_NHAN_DON" } }
+    ] },
+    { "id": "tin_cho", "ten": "Ở Tin nhắn chờ", "trong": 1, "tin_cho": true, "luat": [
+      { "khi": "the_giu", "lam": { "bam": "GIU_LEN_DON" } },
+      { "khi": "xin_thong_tin", "lam": { "nhan": "{ten}, {sdt}, {dia_chi}" } },
+      { "khi": "the_don", "lam": { "bam": "XAC_NHAN_DON" } },
+      { "khi": "chon_pl", "lam": { "cham": 0 } }
+    ] },
+    { "id": "go_dung", "ten": "Gõ DỪNG", "trong": 1, "luat": [
+      { "khi": "the_giu", "lam": { "nhan": "dừng" } }
+    ] },
+    { "id": "im_lang", "ten": "Im lặng", "trong": 1, "luat": [] }
+  ]
+}

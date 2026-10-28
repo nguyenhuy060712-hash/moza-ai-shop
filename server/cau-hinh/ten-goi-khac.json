@@ -1,0 +1,24 @@
+{
+  "_ghi_chu": "Bảng tên gọi khác khi nhận bình luận chốt (SPEC.md F-53). Mỗi dòng: cách khách gõ (bỏ dấu, chữ thường) → giá trị chuẩn (so không dấu với giá trị phân loại của sản phẩm). Sửa file này để thêm cách gọi, không cần sửa mã; khởi động lại phần mềm để có hiệu lực. Chỉ dùng khi giá trị chuẩn có trong sản phẩm được chốt.",
+  "mau": {
+    "black": "den", "dem": "den",
+    "white": "trang", "trang tinh": "trang",
+    "kem": "kem", "trang kem": "kem", "cream": "kem",
+    "be": "be", "beige": "be", "nau be": "be",
+    "nau": "nau", "brown": "nau",
+    "xanh duong": "xanh duong", "xanh bien": "xanh duong", "blue": "xanh duong",
+    "navy": "xanh navy", "xanh than": "xanh navy", "xanh dam": "xanh navy",
+    "xanh la": "xanh la", "green": "xanh la", "reu": "xanh reu", "xanh reu": "xanh reu",
+    "do": "do", "red": "do", "do do": "do do", "do tuoi": "do",
+    "hong": "hong", "pink": "hong", "hong phan": "hong",
+    "vang": "vang", "yellow": "vang",
+    "tim": "tim", "purple": "tim",
+    "xam": "xam", "ghi": "xam", "grey": "xam", "gray": "xam",
+    "cam": "cam", "orange": "cam"
+  },
+  "co": {
+    "size s": "s", "sz s": "s", "size m": "m", "sz m": "m", "size l": "l", "sz l": "l",
+    "size xl": "xl", "sz xl": "xl", "size xxl": "xxl", "2 xl": "xxl", "xxxl": "3xl", "3 xl": "3xl",
+    "free size": "freesize", "freesize": "freesize", "fs": "freesize", "free": "freesize"
+  }
+}

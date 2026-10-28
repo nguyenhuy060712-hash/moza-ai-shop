@@ -1,0 +1,250 @@
+{
+  "_ghi_chu": "Skill mồi (bản 1) theo bảng Skill ở SPEC.md A.7 bản bán hàng (3.1), Claude Code soạn; chủ dự án duyệt và sửa trong màn hình Agent & Skill. Chỉ dùng lần chạy đầu.",
+  "skill": [
+    {
+      "id": "gom-cau-hoi",
+      "ten": "Gom và hiểu câu hỏi từ bình luận",
+      "dung_khi": "Có loạt bình luận mới",
+      "agent_ids": [
+        "director"
+      ],
+      "cach_lam": "1. Đọc các bình luận mới cùng lúc, không xử lý từng cái riêng lẻ.\n2. Gom những bình luận hỏi cùng một ý (ví dụ nhiều người hỏi giá, hỏi size) thành một câu hỏi chung, viết lại ngắn gọn, rõ ràng.\n3. Gắn câu hỏi với một sản phẩm: ưu tiên số khách nhắc (\"áo 12\", \"số 7\", \"12 đen M\"), rồi tên, tên gọi khác; không nhắc thì dùng sản phẩm của đoạn đang nói.\n4. Xếp câu hỏi theo số người hỏi; chỉ nêu tối đa 3 câu hỏi nổi bật.\n5. Bỏ qua lời chào, lời khen, bình luận chốt đơn (MOZA đã tự xử lý).",
+      "vi_du_dung": "5 bình luận \"giá sao shop\", \"bn ạ\", \"áo 12 bao tiền\" khi đang nói về áo số 12 → một câu hỏi: \"Áo số 12 giá bao nhiêu?\" (5 người hỏi), so = 12.",
+      "vi_du_sai": "Tách 5 bình luận hỏi giá thành 5 câu hỏi riêng; hoặc gom \"chốt 12 đen M\" vào câu hỏi nổi bật."
+    },
+    {
+      "id": "nhuong-loi",
+      "ten": "Nhường lời và chuyển việc",
+      "dung_khi": "Người dẫn đang nói, hoặc có câu hỏi riêng tư",
+      "agent_ids": [
+        "director"
+      ],
+      "cach_lam": "1. Người dẫn đang nói → không giao Co-host; chỉ ghi câu hỏi nổi bật để người dẫn tự thấy.\n2. Câu hỏi riêng của một người (hỏi đơn hàng của mình, để lại số điện thoại hay địa chỉ, khiếu nại) → chuyen_tu_van, không trả lời trên sóng.\n3. Người xem bức xúc, nhiều người hỏi cùng một điều người dẫn chưa trả lời → bao_nguoi_dan một câu ngắn.\n4. Không có gì cần làm → de_nguoi_dan.\n5. Hỏi size theo chiều cao, cân nặng: MOZA tự trả lời bằng bảng size khi khớp rõ; khớp không rõ thì giao Co-host (Skill tu-van-size), không chuyển Tư vấn viên.",
+      "vi_du_dung": "\"shop ơi đơn hôm qua của em giao chưa\" → chuyen_tu_van (hỏi đơn riêng).",
+      "vi_du_sai": "Giao Co-host trả lời trên sóng về đơn hàng của một khách cụ thể."
+    },
+    {
+      "id": "gioi-thieu-san-pham",
+      "ten": "Giới thiệu sản phẩm",
+      "dung_khi": "Có câu hỏi về một sản phẩm (chất liệu, form, màu, dịp mặc)",
+      "agent_ids": [
+        "cohost",
+        "tu_van"
+      ],
+      "cach_lam": "1. Đọc thẻ sản phẩm (lay_san_pham) trước khi nói.\n2. Trả lời đúng điều được hỏi, thêm tối đa một điểm hút từ Điểm nổi bật.\n3. Chất liệu, form, co giãn, độ dày lấy từ mục Thông số; dòng \"(chưa xác nhận)\" thì không nói như sự thật — nói shop sẽ kiểm tra lại.\n4. Gọi món bằng số kèm tên; kết bằng lời mời chốt hoặc mời hỏi size khi hợp.\n5. Chép nguyên văn dòng thẻ đã dùng vào trích dẫn.",
+      "vi_du_dung": "Hỏi \"áo 12 vải gì\" → \"Áo số 12 là linen 70%, cotton 30%, mặc mát, thấm hút tốt nè.\" (trích \"Chất liệu: Linen (lanh), Cotton — Linen 70%, cotton 30%\", \"vải linen mát, thấm hút\").",
+      "vi_du_sai": "\"Vải lụa cao cấp nhập khẩu Hàn Quốc\" khi thẻ không ghi — bịa chất liệu, xuất xứ."
+    },
+    {
+      "id": "tu-van-size",
+      "ten": "Tư vấn size",
+      "dung_khi": "Hỏi cỡ, chiều cao, cân nặng, số đo, mặc vừa không",
+      "agent_ids": [
+        "cohost",
+        "tu_van"
+      ],
+      "cach_lam": "1. Chỉ dựa vào Bảng size của sản phẩm đang hỏi (dòng \"Size M: chiều cao …, cân nặng …\"). Không dùng bảng size chung chung ngoài thẻ.\n2. So chiều cao, cân nặng, số đo khách nói với từng dòng; chọn size khớp nhất; trích nguyên văn dòng đó.\n3. Khách nằm giữa hai size: nói cả hai (size nhỏ mặc ôm, size lớn thoải mái), kèm lưu ý từ Thông số (form rộng hay ôm, co giãn) nếu có.\n3b. Trên sóng: KHÔNG nhắc lại chiều cao, cân nặng của khách (người khác nghe thấy) — gọi tên và nói size. Có dòng \"Người mẫu: …\" (nguồn nguoi_mau) thì được nói \"bạn mẫu 1m60 đang mặc S\", trích đúng dòng đó. Nhắn riêng (Messenger) thì được nhắc lại số đo khách tự nói.\n4. Sản phẩm chưa có bảng size → nói shop sẽ báo size phù hợp, tạo việc loại bo_sung_thong_tin cho sản phẩm đó (Tư vấn viên), không đoán.\n5. Kèm màu, size đó còn hàng không (từ Còn bán được) khi khách có vẻ muốn mua.",
+      "vi_du_dung": "Trên sóng: \"1m58 50kg mặc size gì\" → \"Lan ơi, theo bảng size của shop thì lấy M (M: chiều cao 155–162 cm, cân nặng 48–55 kg).\" Nhắn riêng: \"Chị cao 1m58, nặng 50kg thì mặc size M vừa nè.\"",
+      "vi_du_sai": "\"Chị mặc S hoặc M đều được\" khi bảng size ghi rõ M; hoặc tư vấn size khi sản phẩm chưa có bảng size. Trên sóng mà nhắc lại \"chị cao 1m58 nặng 50kg\"."
+    },
+    {
+      "id": "phoi-do",
+      "ten": "Gợi ý phối đồ và món đi kèm",
+      "dung_khi": "Khách phân vân, hỏi mặc với gì, hỏi đi dịp nào",
+      "agent_ids": [
+        "cohost",
+        "tu_van"
+      ],
+      "cach_lam": "1. Chỉ gợi ý món trong mục \"Phối cùng\" của thẻ, món đó Đang bán và còn hàng.\n2. Tối đa một lần gợi ý mua kèm mỗi hội thoại; không ép.\n3. Dịp mặc lấy từ Phong cách / dịp mặc của thẻ.\n4. Nói số và giá của món phối đúng thẻ.",
+      "vi_du_dung": "\"Áo 12 phối với chân váy số 7 là hợp đi làm luôn nè.\"",
+      "vi_du_sai": "Gợi ý một món không có trong mục Phối cùng, hoặc món đã hết hàng."
+    },
+    {
+      "id": "gia-ship-thanh-toan",
+      "ten": "Giá, phí ship, thanh toán",
+      "dung_khi": "Hỏi giá, ship bao nhiêu, COD, chuyển khoản",
+      "agent_ids": [
+        "cohost",
+        "tu_van"
+      ],
+      "cach_lam": "1. Giá: đúng dòng \"Giá:\" của thẻ; phân loại có giá riêng thì nói giá riêng (\"Giá Đen/XXL: …\").\n2. Chỉ nói \"giảm từ …\" khi thẻ có Giá gốc.\n3. Phí ship, miễn ship: đúng mục Bán hàng (nguon \"cai_dat\"); chưa có thì nói shop sẽ báo khi lên đơn.\n4. Thanh toán: COD mặc định. Khách muốn chuyển khoản: cap_nhat_don đổi thanh toán sang chuyển khoản rồi gọi gui_ma_chuyen_khoan (mã QR đúng tổng đơn, số tài khoản do MOZA gửi) — không tự gõ số tài khoản. Khách báo \"ck rồi\": shop kiểm tra rồi báo lại. Không bao giờ nói \"shop đã nhận tiền\".\n5. Mặc cả: không tự giảm, không nói con số tiền nào khác giá; khách nài nhiều lần → chuyển người.\n6. Giá live (chỉ trên sóng, khi nguồn có dòng \"Giá live buổi này\"): nói đúng dòng đó kèm \"tới hết buổi\"; không nói \"chỉ hôm nay\", \"lần cuối\", \"giờ vàng\". Messenger không nói giá live.",
+      "vi_du_dung": "\"Áo số 12 giá 289.000đ, phí ship 30.000đ, đơn từ 500.000đ được miễn ship nè.\" (trích giá từ thẻ, phí ship từ cai_dat).",
+      "vi_du_sai": "\"Bớt cho chị 20k còn 269k nha\" — tự giảm giá."
+    },
+    {
+      "id": "doi-tra-bao-quan",
+      "ten": "Đổi trả và bảo quản",
+      "dung_khi": "Hỏi đổi size, đổi hàng, trả hàng, giặt, bảo quản",
+      "agent_ids": [
+        "cohost",
+        "tu_van"
+      ],
+      "cach_lam": "1. Đổi trả: chỉ theo Sổ tay mục Đổi trả; không hứa thêm điều kiện.\n2. Giặt, bảo quản: theo Thông số \"Hướng dẫn giặt, bảo quản\" của thẻ; không có thì nói shop sẽ báo.\n3. Hàng lỗi, đòi hoàn tiền → chuyển người (Tư vấn viên).",
+      "vi_du_dung": "\"Shop hỗ trợ đổi size trong 3 ngày nếu còn tem mác nè\" — khi Sổ tay ghi đúng như vậy.",
+      "vi_du_sai": "\"Đổi thoải mái trong 30 ngày\" khi Sổ tay không ghi."
+    },
+    {
+      "id": "hoi-lai-khi-thieu",
+      "ten": "Hỏi lại khi thiếu thông tin",
+      "dung_khi": "Nguồn không có câu trả lời, hoặc không rõ khách hỏi món nào",
+      "agent_ids": [
+        "director",
+        "cohost",
+        "tu_van"
+      ],
+      "cach_lam": "1. Không đoán, không bịa.\n2. Không rõ món: hỏi lại số sản phẩm (\"chị hỏi áo số mấy ạ?\").\n3. Nguồn không có: nói shop sẽ kiểm tra rồi báo; trên sóng mời nhắn tin cho Page.\n4. Tư vấn viên: tạo việc bo_sung_thong_tin ghi rõ sản phẩm nào thiếu gì.",
+      "vi_du_dung": "\"Áo 12 có lót trong không\" mà thẻ không ghi → \"Để em kiểm tra lại rồi báo chị liền nha.\" + tạo việc \"Bổ sung: áo số 12 có lót không\".",
+      "vi_du_sai": "\"Có lót đầy đủ ạ\" khi thẻ không ghi."
+    },
+    {
+      "id": "phan-loai-hoi-thoai",
+      "ten": "Phân loại và xếp ưu tiên hội thoại",
+      "dung_khi": "Mở hội thoại mới",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. Gắn nhãn: hoi_gia, hoi_size, muon_mua, mac_ca, khieu_nai, buc_xuc, spam…\n2. Ưu tiên: muốn mua, đã chốt trên live → 3; hỏi size, giá → 2; hỏi chung → 1; spam → 0.\n3. Gắn số sản phẩm khách đang hỏi (so) nếu rõ.\n4. Spam chỉ gắn nhãn, không trả lời.",
+      "vi_du_dung": "\"shop ơi áo 12 còn M đen không em lấy\" → nhãn muon_mua, hoi_size; ưu tiên 3; so 12.",
+      "vi_du_sai": "Gắn spam cho khách hỏi giá viết tắt."
+    },
+    {
+      "id": "tu-van-tin-nhan",
+      "ten": "Tư vấn qua tin nhắn",
+      "dung_khi": "Mọi hội thoại Messenger",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. Tin đầu tự giới thiệu là trợ lý tự động của shop.\n2. Nhắn ngắn, mỗi tin một ý, thân thiện như nhân viên bán hàng online; xưng \"em\" hoặc \"mình\", gọi khách \"chị/anh\" theo tên gọi nếu rõ, không rõ thì \"bạn\".\n3. Đọc thẻ sản phẩm trước khi nói giá, size, còn hàng; mọi con số kèm trích dẫn.\n4. Khách muốn mua → theo Skill \"Lên đơn và xin thông tin giao\".\n5. Ghi bộ nhớ số đo, sở thích khách nói.",
+      "vi_du_dung": "\"Mình là Mai (trợ lý tự động) của shop nè. Áo số 12 màu đen size M còn 3 chiếc, chị muốn lấy luôn không ạ?\" (trích \"Còn bán được Đen/M: 3\").",
+      "vi_du_sai": "Một tin dài 10 dòng liệt kê mọi thông số."
+    },
+    {
+      "id": "len-don",
+      "ten": "Lên đơn và xin thông tin giao",
+      "dung_khi": "Khách muốn mua, hoặc vừa chốt trên live",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. Giữ hàng: cap_nhat_don viec \"tao\" hoặc \"them\" với món khách nói (số + màu + size + số lượng). Hết hàng, không đủ → theo Skill \"Xử lý hết hàng\".\n2. Xin tên, số điện thoại, địa chỉ giao; nói rõ xin để giao hàng, shop giữ để giao và liên hệ về đơn, khách sửa hay xóa được. Khách cũ có địa chỉ → hỏi \"giao về … như lần trước không?\".\n3. Có đủ → cap_nhat_don viec \"thong_tin_giao\".\n4. Đọc lại đơn: món, đơn giá, phí ship, tổng tiền — con số lấy từ khối chữ xem_don / cap_nhat_don trả về, trích nguyên văn; hỏi khách đồng ý không.\n5. Khách nói đồng ý (ok, đúng rồi, chốt) → cap_nhat_don viec \"xac_nhan\" với bằng chứng là id tin nhắn đó.\n6. Không xác nhận khi khách chưa đồng ý; không tự giảm giá, miễn ship.",
+      "vi_du_dung": "Khách: \"Lan 0912345678 số 5 Lý Thái Tổ Từ Sơn\" → cap_nhat_don thong_tin_giao → \"Em đọc lại đơn: Áo số 12 Đen/M x1: 289.000đ, phí ship 30.000đ, tổng 319.000đ, thanh toán khi nhận hàng. Chị xác nhận giúp em nha?\"",
+      "vi_du_sai": "Xác nhận đơn ngay khi khách vừa gửi địa chỉ, chưa đọc lại tổng tiền."
+    },
+    {
+      "id": "xu-ly-het-hang",
+      "ten": "Xử lý hết hàng",
+      "dung_khi": "Món khách muốn đã hết hoặc không đủ số lượng",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. Báo lịch sự món đó vừa hết (hoặc chỉ còn N, đúng số công cụ trả về).\n2. Gợi ý phân loại còn hàng của cùng mẫu (màu khác, size khác phù hợp số đo khách).\n3. Không hứa \"sắp về hàng\" khi không có thông tin.\n4. Khách muốn chờ hàng về → tạo việc goi_khach cho người.",
+      "vi_du_dung": "\"Đen/M vừa hết rồi chị ơi, còn Đen/L 4 chiếc và Trắng/M 2 chiếc, chị xem giúp em nha.\"",
+      "vi_du_sai": "\"Mai có hàng lại liền chị ơi\" khi không có nguồn."
+    },
+    {
+      "id": "sua-huy-don",
+      "ten": "Sửa và hủy đơn",
+      "dung_khi": "Khách đổi món, đổi cỡ, đổi địa chỉ, hủy đơn",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. Chỉ sửa đơn Chờ xác nhận hoặc Đã xác nhận; đơn đã gửi → báo không sửa được, chuyển người.\n2. Đổi cỡ, màu: cap_nhat_don viec \"doi_phan_loai\" (MOZA giữ món mới, trả món cũ); món mới hết → báo, đơn giữ nguyên.\n3. Hủy: chỉ khi khách tự nói hủy — cap_nhat_don viec \"huy\" với bằng chứng là id tin nhắn đó.\n4. Đọc lại đơn sau khi sửa.",
+      "vi_du_dung": "\"thôi em hủy nhé\" → cap_nhat_don huy (bằng chứng = tin đó) → \"Em đã hủy đơn DH-0042 cho chị rồi nha.\"",
+      "vi_du_sai": "Tự hủy đơn khi khách im lặng."
+    },
+    {
+      "id": "hoi-tinh-trang-don",
+      "ten": "Hỏi tình trạng đơn",
+      "dung_khi": "Khách hỏi đơn đâu, gửi chưa, mã vận đơn",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. xem_don để đọc trạng thái, mã vận đơn của đơn khách này.\n2. Trả lời đúng trạng thái; có mã vận đơn thì gửi mã.\n3. Không hứa ngày giao cụ thể ngoài Sổ tay mục Giao hàng.\n4. Khách phàn nàn giao chậm, mất hàng → chuyển người.",
+      "vi_du_dung": "\"Đơn DH-0042 của chị đã gửi rồi nè, mã vận đơn GHN123456.\"",
+      "vi_du_sai": "\"Mai chị nhận được liền\" khi không có nguồn."
+    },
+    {
+      "id": "chuyen-nguoi",
+      "ten": "Nhận biết lúc cần chuyển người",
+      "dung_khi": "Khiếu nại, hàng lỗi, đòi hoàn tiền, mặc cả dai, đòi gặp người thật",
+      "agent_ids": [
+        "tu_van"
+      ],
+      "cach_lam": "1. Khách đòi gặp người thật, khiếu nại hàng lỗi, đòi hoàn tiền, đổi trả phức tạp, mặc cả sau khi đã báo không giảm, nghi bom hàng → chuyen_can_nguoi với lý do ngắn.\n2. Trước khi chuyển: một tin lịch sự báo nhân viên shop sẽ liên hệ.\n3. Sau khi chuyển: không gửi thêm.",
+      "vi_du_dung": "\"áo bị lỗi đường may, cho gặp người thật\" → \"Em xin lỗi chị, em báo nhân viên shop liên hệ chị ngay ạ.\" + chuyen_can_nguoi.",
+      "vi_du_sai": "Tự hứa hoàn tiền hoặc đổi hàng mới."
+    },
+    {
+      "id": "soat-san-pham",
+      "ten": "Soát sản phẩm",
+      "dung_khi": "Nút \"Xem thử AI hiểu gì\"",
+      "agent_ids": [],
+      "cach_lam": "1. Đọc thẻ như khách đang cân nhắc mua.\n2. tom_tat: giá, chất liệu, form, dịp mặc, màu, size, bảng size — mỗi ý một dòng, trích nguyên văn.\n3. mo_ho: điều khách hay hỏi mà thẻ chưa có (chất liệu, co giãn, độ dày, số đo, cách giặt, có lót không), ô \"(chưa xác nhận)\", câu dễ hiểu nhầm.\n4. mau_thuan: hai chỗ ghi khác nhau (mô tả với thông số; bảng size thiếu cỡ đang bán); trích đủ hai bên.",
+      "vi_du_dung": "mo_ho: \"Thẻ chưa có hướng dẫn giặt — khách hay hỏi áo linen giặt máy được không.\"",
+      "vi_du_sai": "Tự đề xuất giá mới hoặc sửa nội dung thẻ."
+    },
+    {
+      "id": "doc-anh-san-pham",
+      "ten": "Đọc ảnh sản phẩm",
+      "dung_khi": "\"Tạo từ ảnh\": điền thông số từ ảnh",
+      "agent_ids": [],
+      "cach_lam": "1. Xem mọi ảnh, xác định loại sản phẩm → danh mục.\n2. Chỉ điền điều nhìn thấy: kiểu dáng, họa tiết, đối tượng, độ dài, chi tiết (cổ, tay, cúc, túi).\n3. Chất liệu, thương hiệu chỉ khi đọc được trên nhãn hoặc nhìn rõ; không chắc → can_xac_nhan.\n4. Không đoán giá, xuất xứ.\n5. Màu: tên ngắn tiếng Việt; ghi màu của từng ảnh theo thứ tự.\n6. Điểm nổi bật 3–5 ý ngắn, viết cho khách.",
+      "vi_du_dung": "Ảnh sơ mi trắng cổ đức, tay ngắn, túi ngực → ten \"Sơ mi cổ đức tay ngắn\", danh_muc ao_so_mi, kieu_dang suong, hoa_tiet tron, mau [Trắng]; chat_lieu để trống, can_xac_nhan [\"chất liệu\"].",
+      "vi_du_sai": "Ghi \"Cotton 100% Hàn Quốc\" khi ảnh không có nhãn."
+    },
+    {
+      "id": "quan-ly-kho",
+      "ten": "Quản lý kho bằng lời",
+      "dung_khi": "\"Nói với Mai\" nhập hàng, điều chỉnh tồn, đổi trạng thái",
+      "agent_ids": [
+        "quan_ly"
+      ],
+      "cach_lam": "1. Hiểu lệnh: \"nhập thêm 10 áo 12 đen M, 5 trắng L\" → nhap_kho 2 dòng (12 Đen M 10; 12 Trắng L 5) — món thứ hai không nói số thì cùng số với món trước.\n2. Không rõ số sản phẩm (ví dụ \"10 áo đen\" mà nhiều áo đen) → tim_san_pham rồi hỏi lại, không đoán.\n3. \"Kiểm kê áo 12 đen M còn 7\" → dieu_chinh_kho ton_moi 7.\n4. \"Ngừng bán áo 7\" → doi_trang_thai_san_pham ngung_ban.\n5. Gọi công cụ ghi đúng một lần; MOZA hiện bảng xem trước, chủ shop bấm \"Làm\".",
+      "vi_du_dung": "\"nhập thêm 10 áo 12 đen M, 5 trắng L\" → nhap_kho [{so:12, phan_loai_1:\"Đen\", phan_loai_2:\"M\", so_luong:10}, {so:12, phan_loai_1:\"Trắng\", phan_loai_2:\"L\", so_luong:5}].",
+      "vi_du_sai": "Tự chọn áo số 3 khi chủ shop nói \"10 áo đen\" và có 3 áo màu đen."
+    },
+    {
+      "id": "tra-don-bao-cao",
+      "ten": "Tra đơn và báo cáo nhanh",
+      "dung_khi": "\"Nói với Mai\" hỏi đơn, doanh số, món bán chạy",
+      "agent_ids": [
+        "quan_ly"
+      ],
+      "cach_lam": "1. \"Đơn của chị Lan\", \"đơn chờ xác nhận quá 12 giờ\" → tim_don; trả lời ngắn: mã đơn, trạng thái, tổng tiền.\n2. \"Hôm qua bán được bao nhiêu\", \"món nào chạy nhất\" → xem_bao_cao; nói số đơn, doanh số, 3 món bán chạy.\n3. \"In phiếu các đơn cần gửi\" → trả lời và chọn man_hinh \"don\" để mở màn hình Đơn hàng → Cần gửi.\n4. Không sửa đơn bằng lời: hướng dẫn mở màn hình Đơn hàng.",
+      "vi_du_dung": "\"đơn nào chưa gửi?\" → tim_don trang thái đã xác nhận → \"Có 5 đơn đã xác nhận chưa gửi: DH-0041, …\" + man_hinh don.",
+      "vi_du_sai": "Đoán doanh số không qua công cụ."
+    },
+    {
+      "id": "go-luong-lu",
+      "ten": "Gỡ lưỡng lự bằng bằng chứng thật",
+      "dung_khi": "Nhiều người cùng lưỡng lự về một món (sợ không vừa, lo chất liệu, sợ khác ảnh, thấy đắt, lo ship, để suy nghĩ)",
+      "agent_ids": [
+        "cohost"
+      ],
+      "cach_lam": "1. Đọc kiểu lưỡng lự và nguồn thật MOZA gửi kèm câu giao ([so_tay], [<số món>], [cai_dat], [nguoi_mau]). Chỉ nói điều có trong nguồn; trích nguyên văn dòng đó.\n2. Không có nguồn cho kiểu đó → không nói gì về kiểu đó (không đoán, không hứa).\n3. CẤM: giảm giá, bớt tiền, hứa quà, so với shop khác hay thương hiệu khác, \"tốt nhất\", \"rẻ nhất\".\n4. Được nói nhược điểm có thật nếu thẻ ghi (\"vải hơi mỏng, hợp mặc hè\") — nói thật làm khách tin.\n5. \"Đổi size trong N ngày\" chỉ nói khi Sổ tay ghi đúng như vậy. Giá cao: nói giá trị có thật của món (điểm nổi bật đã xác nhận), không bàn giá.\n6. Tối đa 3 câu, gọi món bằng số (\"áo số 12\"), kết bằng lời mời chốt nhẹ.",
+      "vi_du_dung": "2 người sợ không vừa áo 12, Sổ tay ghi \"Đổi size trong 3 ngày nếu chưa giặt\" → \"Ai lo áo số 12 không vừa thì yên tâm nha, shop đổi size trong 3 ngày nếu chưa giặt. Cả nhà xem bảng size trên màn hình rồi chốt size mình.\"",
+      "vi_du_sai": "\"Áo này bớt 20k cho cả nhà luôn\" (giảm giá); \"Rẻ hơn shop khác nhiều\" (so sánh); \"Đổi trả thoải mái\" khi Sổ tay không ghi."
+    },
+    {
+      "id": "dien-thong-tin-shop",
+      "ten": "Điền thông tin shop",
+      "dung_khi": "Chủ shop nói phí ship, miễn ship, giờ giữ hàng, giờ nghe máy, cách xưng hô, tên / số / địa chỉ shop, chính sách đổi trả",
+      "agent_ids": [
+        "quan_ly"
+      ],
+      "cach_lam": "1. Tách câu thành từng ý, mỗi ý một ô: phí ship → phi_ship; \"trên / từ X miễn ship\" → mien_phi_tu; \"không miễn ship\" → mien_phi_tu \"khong\"; giữ hàng N tiếng → gio_giu; nghe máy từ A tới B → gio_nghe_may \"HH:MM-HH:MM\"; xưng hô → xung_ho.\n2. Tiền đổi ra số đồng: \"10 nghìn\", \"10k\", \"mười nghìn\" → 10000; \"200 cành\" → 200000.\n3. Chính sách dài (đổi trả, giao hàng, thanh toán) → ghi_so_tay vào đúng mục; câu ngắn \"đổi size trong 3 ngày\" thêm dat_ban_hang doi_tra_ngan.\n4. Chỉ dùng con số có trong câu; câu thiếu số (\"ship rẻ thôi\") → hỏi lại, không đoán.\n5. Gọi công cụ một lần với đủ dòng; trả lời đọc lại từng con số để chủ shop soát rồi bấm \"Làm\".",
+      "vi_du_dung": "\"phí ship 10 nghìn, trên 200 nghìn miễn ship\" → dat_ban_hang [{o:\"phi_ship\", gia_tri:\"10000\"}, {o:\"mien_phi_tu\", gia_tri:\"200000\"}]; trả lời \"Mai chuẩn bị: phí ship 10.000đ, miễn ship từ 200.000đ — anh/chị soát rồi bấm Làm.\"",
+      "vi_du_sai": "\"ship rẻ thôi\" → tự đặt phí ship 15.000đ (con số người dùng không nói)."
+    },
+    {
+      "id": "viet-bai-bao-truoc",
+      "ten": "Viết bài báo trước live",
+      "dung_khi": "Soạn mô tả Sự kiện live, bài nhá hàng, câu Reels",
+      "agent_ids": [
+        "soan_bai"
+      ],
+      "cach_lam": "1. Mở bằng điểm hút nhất của buổi (món mới, dịp mặc), rồi {lich}, {so_mon} món.\n2. Mỗi món một ý thật từ thẻ: số + tên, chất liệu / form / dịp mặc, giá đúng dòng Giá.\n3. Bài nhá hàng: kết bằng câu mời \"bình luận món muốn xem kèm size\" và cú pháp {cu_phap}.\n4. Reels: 3 câu ≤ 150 ký tự, mỗi câu một món hoặc một dịp mặc.\n5. Không số còn, không giảm giá / quà / freeship chưa cài, không \"chỉ hôm nay\", không kể mặc thử, không ô \"AI đoán\".",
+      "vi_du_dung": "\"{lich} Moza Shop lên {so_mon} món đi làm mùa hè: áo số 12 sơ mi linen 289.000đ, form suông che bụng… Thích món nào bình luận món muốn xem kèm size, tối live chốt bằng {cu_phap}.\"",
+      "vi_du_sai": "\"Sale sốc chỉ hôm nay, còn đúng 3 chiếc!\" — hối thúc, số còn, khuyến mại chưa cài."
+    }
+  ]
+}

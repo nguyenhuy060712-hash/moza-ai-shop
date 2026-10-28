@@ -1,0 +1,29 @@
+{
+  "_ghi_chu": "Các bản Skill mẫu cũ (cach_lam, vi_du_dung, vi_du_sai). Khi khởi động, Skill nào còn đúng chữ một bản ở đây thì được nâng lên bản mẫu mới trong skill-mau.json; đã sửa tay thì giữ nguyên. Bản 3.4 BH6 (28/9/2026): nhuong-loi, tu-van-size sửa theo F-82. BH7 (28/9/2026): gia-ship-thanh-toan sửa bước 4 theo F-89. BH7 (28/9/2026): gia-ship-thanh-toan thêm bước 6 giá live (F-93).",
+  "nhuong-loi": [
+    {
+      "cach_lam": "1. Người dẫn đang nói → không giao Co-host; chỉ ghi câu hỏi nổi bật để người dẫn tự thấy.\n2. Câu hỏi riêng của một người (size theo số đo riêng rất chi tiết, hỏi đơn hàng của mình, để lại số điện thoại hay địa chỉ, khiếu nại) → chuyen_tu_van, không trả lời trên sóng.\n3. Người xem bức xúc, nhiều người hỏi cùng một điều người dẫn chưa trả lời → bao_nguoi_dan một câu ngắn.\n4. Không có gì cần làm → de_nguoi_dan.",
+      "vi_du_dung": "\"shop ơi đơn hôm qua của em giao chưa\" → chuyen_tu_van (hỏi đơn riêng).",
+      "vi_du_sai": "Giao Co-host trả lời trên sóng về đơn hàng của một khách cụ thể."
+    }
+  ],
+  "tu-van-size": [
+    {
+      "cach_lam": "1. Chỉ dựa vào Bảng size của sản phẩm đang hỏi (dòng \"Size M: chiều cao …, cân nặng …\"). Không dùng bảng size chung chung ngoài thẻ.\n2. So chiều cao, cân nặng, số đo khách nói với từng dòng; chọn size khớp nhất; trích nguyên văn dòng đó.\n3. Khách nằm giữa hai size: nói cả hai, kèm lưu ý từ Thông số (form rộng hay ôm, co giãn) nếu có.\n4. Sản phẩm chưa có bảng size → nói shop sẽ báo size phù hợp, tạo việc loại bo_sung_thong_tin cho sản phẩm đó (Tư vấn viên), không đoán.\n5. Kèm màu, size đó còn hàng không (từ Còn bán được) khi khách có vẻ muốn mua.",
+      "vi_du_dung": "\"1m58 50kg mặc size gì\" → \"Chị cao 1m58, nặng 50kg thì mặc size M vừa nè (M: chiều cao 155–162 cm, cân nặng 48–55 kg).\"",
+      "vi_du_sai": "\"Chị mặc S hoặc M đều được\" khi bảng size ghi rõ M; hoặc tư vấn size khi sản phẩm chưa có bảng size."
+    }
+  ],
+  "gia-ship-thanh-toan": [
+    {
+      "cach_lam": "1. Giá: đúng dòng \"Giá:\" của thẻ; phân loại có giá riêng thì nói giá riêng (\"Giá Đen/XXL: …\").\n2. Chỉ nói \"giảm từ …\" khi thẻ có Giá gốc.\n3. Phí ship, miễn ship: đúng mục Bán hàng (nguon \"cai_dat\"); chưa có thì nói shop sẽ báo khi lên đơn.\n4. Thanh toán: COD mặc định; chuyển khoản theo Sổ tay mục Thanh toán. Không bao giờ nói \"shop đã nhận tiền\".\n5. Mặc cả: không tự giảm, không nói con số tiền nào khác giá; khách nài nhiều lần → chuyển người.",
+      "vi_du_dung": "\"Áo số 12 giá 289.000đ, phí ship 30.000đ, đơn từ 500.000đ được miễn ship nè.\" (trích giá từ thẻ, phí ship từ cai_dat).",
+      "vi_du_sai": "\"Bớt cho chị 20k còn 269k nha\" — tự giảm giá."
+    },
+    {
+      "cach_lam": "1. Giá: đúng dòng \"Giá:\" của thẻ; phân loại có giá riêng thì nói giá riêng (\"Giá Đen/XXL: …\").\n2. Chỉ nói \"giảm từ …\" khi thẻ có Giá gốc.\n3. Phí ship, miễn ship: đúng mục Bán hàng (nguon \"cai_dat\"); chưa có thì nói shop sẽ báo khi lên đơn.\n4. Thanh toán: COD mặc định. Khách muốn chuyển khoản: cap_nhat_don đổi thanh toán sang chuyển khoản rồi gọi gui_ma_chuyen_khoan (mã QR đúng tổng đơn, số tài khoản do MOZA gửi) — không tự gõ số tài khoản. Khách báo \"ck rồi\": shop kiểm tra rồi báo lại. Không bao giờ nói \"shop đã nhận tiền\".\n5. Mặc cả: không tự giảm, không nói con số tiền nào khác giá; khách nài nhiều lần → chuyển người.",
+      "vi_du_dung": "\"Áo số 12 giá 289.000đ, phí ship 30.000đ, đơn từ 500.000đ được miễn ship nè.\" (trích giá từ thẻ, phí ship từ cai_dat).",
+      "vi_du_sai": "\"Bớt cho chị 20k còn 269k nha\" — tự giảm giá."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "_ghi_chu": "Bảng giá model (F-14, A.11): USD cho 1 triệu token vào / ra. Sửa file này khi hãng đổi giá, không cần sửa mã. Tra 23/9/2026 theo nguồn ở SPEC.md mục 6. gemini-3.8-flash đang giá khuyến mãi tới 31/12/2026; từ 1/1/2027 là 1,50 / 7,50. Model không có trong bảng thì tính theo 'mac_dinh' (giá cao nhất) để mức trần không bị hụt. Bản 3.1 (tra 25–26/9/2026, #86): thêm gpt-6-astra, claude-fable-5-1 (10 / 50); gemini-3.5-flash-lite 0,30 / 2,50 (tra trang giá Gemini API 26/9/2026). Bản 3.4 (tra trang giá Gemini API cập nhật 24/9/2026, F-67): khối \"tu_ngay\" — giá đổi theo ngày gọi, chi-phi.js tự chọn; từ 1/1/2027 gemini-3.8-flash 1,50 / 7,50 và TTS gấp đôi; Gemini 3.8 Live KHÔNG đổi giá. Phần hình của miệng Live (IMAGE, VIDEO) 1 USD / 1 triệu token vào. BH10 (tra 28/10/2026, docs/11 mục 1, F-111): thêm gpt-6.1-sol 2 / 10, gpt-6.1-terra 1 / 5, claude-sonnet-5-5 2 / 10, claude-haiku-5-5 0,10 / 0,50; máy đọc gpt-realtime-2.1-mini; khối tts_ky_tu (ElevenLabs, USD / 1.000 ký tự). Ô \"tat_ngay\" (YYYY-MM-DD) = ngày hãng tắt model: còn ≤ 30 ngày bảng Sẵn sàng báo vàng, đã tắt báo đỏ (chi-phi.js modelSapTat).",
+  "model": {
+    "gemini-3.8-flash": {
+      "vao": 0.75,
+      "ra": 3.75
+    },
+    "gpt-6-luna": {
+      "vao": 0.1,
+      "ra": 0.5
+    },
+    "gpt-6-sol": {
+      "vao": 2,
+      "ra": 10
+    },
+    "claude-sonnet-5": {
+      "vao": 2,
+      "ra": 10
+    },
+    "claude-opus-5-5": {
+      "vao": 4,
+      "ra": 20
+    },
+    "gemini-3.5-flash-lite": {
+      "vao": 0.3,
+      "ra": 2.5
+    },
+    "gpt-6-astra": {
+      "vao": 10,
+      "ra": 50
+    },
+    "claude-fable-5-1": {
+      "vao": 10,
+      "ra": 50
+    },
+    "gpt-6.1-sol": {
+      "vao": 2,
+      "ra": 10
+    },
+    "gpt-6.1-terra": {
+      "vao": 1,
+      "ra": 5
+    },
+    "claude-sonnet-5-5": {
+      "vao": 2,
+      "ra": 10
+    },
+    "claude-haiku-5-5": {
+      "vao": 0.1,
+      "ra": 0.5
+    }
+  },
+  "mac_dinh": {
+    "vao": 4,
+    "ra": 20
+  },
+  "mieng": {
+    "_ghi_chu": "Miệng của Mai (F-22). GPT Live 1 tính theo phút phiên (usage.seconds). Gemini 3.8 Live (cả bản Extended Thinking) tính theo token từng loại, USD cho 1 triệu token; loại lạ tính theo giá tiếng.",
+    "gpt-live-1": {
+      "usd_moi_phut": 0.05
+    },
+    "gemini-3.8-live": {
+      "vao": {
+        "AUDIO": 3,
+        "TEXT": 0.75,
+        "IMAGE": 1,
+        "VIDEO": 1
+      },
+      "ra": {
+        "AUDIO": 12,
+        "TEXT": 4.5
+      }
+    },
+    "gemini-3.8-live-extended-thinking": {
+      "vao": {
+        "AUDIO": 3,
+        "TEXT": 0.75,
+        "IMAGE": 1,
+        "VIDEO": 1
+      },
+      "ra": {
+        "AUDIO": 12,
+        "TEXT": 4.5
+      }
+    }
+  },
+  "tts": {
+    "_ghi_chu": "Gemini 3.8 TTS (bản 2.5, F-38 → F-42): USD cho 1 triệu token chữ vào / tiếng ra. Giá khuyến mãi tới 31/12/2026; từ 1/1/2027 gấp đôi (Flash 1 / 18, Flash-Lite 1 / 12). Gọi thật 24/9/2026: khoảng 31 token mỗi giây tiếng. Tạo giọng tính như Flash TTS; token suy nghĩ tính như token ra. Máy dự phòng gemini-3.1-flash-tts-preview (bản 2.10, #55): 1 / 20 (bảng giá Google tra 25/9/2026).",
+    "gemini-3.8-flash-tts": {
+      "vao": 0.5,
+      "ra": 9
+    },
+    "gemini-3.8-flash-lite-tts": {
+      "vao": 0.5,
+      "ra": 6
+    },
+    "gemini-3.1-flash-tts-preview": {
+      "vao": 1,
+      "ra": 20
+    },
+    "gpt-4o-mini-tts": {
+      "_ghi_chu": "Máy đọc OpenAI cũ (8/10/2026 → BH10). OpenAI tắt 6/1/2027 (developers.openai.com/deprecations, tra 28/10/2026) — MOZA đã đổi sang gpt-realtime-2.1-mini; giữ dòng này để báo nếu còn nơi nào dùng.",
+      "vao": 0.6,
+      "ra": 12,
+      "tat_ngay": "2027-01-06"
+    },
+    "gpt-realtime-2.1-mini": {
+      "_ghi_chu": "Máy đọc OpenAI mới (BH10, F-108) qua Realtime API: chữ vào 0,60, tiếng ra 20, chữ ra (chép lại) 2,40 USD / 1 triệu token (trang giá OpenAI, tra 28/10/2026). Token lấy từ usage của response.done.",
+      "vao": 0.6,
+      "ra": 20,
+      "ra_chu": 2.4
+    },
+    "may-doc-gia": {
+      "_ghi_chu": "Máy đọc giả (bản xem thử --ai-gia, test): 0 đồng.",
+      "vao": 0,
+      "ra": 0
+    }
+  },
+  "tts_ky_tu": {
+    "_ghi_chu": "ElevenLabs (BH10, F-108): USD cho 1.000 ký tự đọc (trang giá ElevenLabs, tra 28/10/2026).",
+    "eleven_v4": 0.08,
+    "eleven_v4_turbo": 0.04
+  },
+  "muc_tran_mac_dinh": {
+    "gio": 8,
+    "ngay": 15,
+    "ngay_co_live": 20
+  },
+  "chep_loi": {
+    "_ghi_chu": "Chép lời người dẫn (F-21). Gemini tính theo token: tiếng khoảng 32 token mỗi giây (ước tính khi dịch vụ không báo số token). OpenAI tính theo phút tiếng.",
+    "gemini-3.5-transcribe-live": {
+      "vao": 3.5,
+      "ra": 21,
+      "token_moi_giay": 32
+    },
+    "gpt-live-transcribe": {
+      "usd_moi_phut": 0.017
+    },
+    "gpt-4o-transcribe": {
+      "_ghi_chu": "MOZA không dùng (không ghi giá); OpenAI tắt 26/2/2027 — ghi để báo nếu có ai chọn.",
+      "tat_ngay": "2027-02-26"
+    },
+    "whisper-1": {
+      "_ghi_chu": "MOZA không dùng (không ghi giá); OpenAI tắt 26/2/2027 — ghi để báo nếu có ai chọn.",
+      "tat_ngay": "2027-02-26"
+    }
+  },
+  "tu_ngay": [
+    {
+      "tu": "2027-01-01",
+      "_ghi_chu": "Hết giá khuyến mãi của Google (trang giá Gemini API, tra 27/9/2026).",
+      "model": {
+        "gemini-3.8-flash": {
+          "vao": 1.5,
+          "ra": 7.5
+        }
+      },
+      "tts": {
+        "gemini-3.8-flash-tts": {
+          "vao": 1,
+          "ra": 18
+        },
+        "gemini-3.8-flash-lite-tts": {
+          "vao": 1,
+          "ra": 12
+        }
+      }
+    }
+  ]
+}

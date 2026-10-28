@@ -1,0 +1,73 @@
+/* GD1: ⓘ gợi ý, hộp hỏi lại, thẻ Hôm nay, hành trình đơn, so sánh bản. Dùng token ở app.css. */
+.goi-y-khung{position:relative;display:inline-flex;align-items:center;margin-left:var(--k1)}
+.goi-y{border:0;background:none;color:var(--ink3);font-size:14px;line-height:1;padding:2px;cursor:help;border-radius:var(--bo-tron)}
+.goi-y:hover{color:var(--clay)}
+.goi-y-bong{position:absolute;z-index:20;left:0;top:calc(100% + 4px);width:max-content;max-width:min(340px,70vw);padding:var(--k2) var(--k3);
+  background:var(--ink);color:#fff;border-radius:var(--bo);font-size:var(--c-nho);font-weight:400;line-height:1.5;text-transform:none;letter-spacing:0;white-space:normal}
+.hop-hoi-lop{position:fixed;inset:0;z-index:90;background:rgba(20,18,14,.45);display:grid;place-items:center;padding:var(--k4)}
+.hop-hoi{background:var(--panel);border-radius:var(--bo-lon);padding:var(--k5);width:min(440px,100%);display:flex;flex-direction:column;gap:var(--k3);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.hop-hoi h2{font-size:var(--c-vua)}
+.hop-hoi p{margin:0}
+.chip .bt{font-size:10px;line-height:1;font-weight:800}
+.chip.accent .bt{display:none}
+.tab-dau{display:inline-block;width:7px;height:7px;margin-left:var(--k1);border-radius:var(--bo-tron);background:var(--amber)}
+.hanh-trinh{display:flex;flex-wrap:wrap;gap:var(--k1) var(--k2);align-items:center;margin:0;padding:0;list-style:none;font-size:var(--c-nho);color:var(--ink2)}
+.hanh-trinh li{display:inline-flex;align-items:center;gap:var(--k2)}
+.hanh-trinh li+li::before{content:"→";color:var(--ink3)}
+.hanh-trinh li.nay{color:var(--ink);font-weight:600}
+.menu-them{position:relative;display:inline-block}
+.menu-them>summary{list-style:none;cursor:pointer}
+.menu-them>summary::-webkit-details-marker{display:none}
+.menu-them .the-menu{position:absolute;right:0;z-index:15;top:calc(100% + 4px);min-width:180px;background:var(--panel);border:1px solid var(--line2);border-radius:var(--bo);padding:var(--k1);display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.menu-them .the-menu button{border:0;background:none;text-align:left;padding:var(--k2) var(--k3);border-radius:var(--bo-nho);cursor:pointer}
+.menu-them .the-menu button:hover{background:var(--sunk)}
+.menu-them .the-menu button.nguy-chu{color:var(--nguy)}
+.so-sanh{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--bo);overflow:hidden;font-size:var(--c-thuong)}
+.ss-dong{display:grid;grid-template-columns:28px minmax(0,1fr);gap:var(--k2);padding:3px var(--k3);white-space:pre-wrap;word-break:break-word}
+.ss-dong .dau{font-weight:700;text-align:center}
+.ss-them{background:var(--green-bg);color:var(--green)}
+.ss-bo{background:var(--red-bg);color:var(--red);text-decoration:line-through}
+.ss-giu{color:var(--ink2)}
+.cot-hai{display:grid;grid-template-columns:1fr 1fr;gap:var(--k3)}
+@media (max-width:760px){.cot-hai{grid-template-columns:1fr}}
+.ngay-nhanh{display:flex;gap:var(--k1);flex-wrap:wrap}
+.o-tien{max-width:160px;text-align:right}
+.the-live{display:flex;align-items:center;gap:var(--k4);flex-wrap:wrap;padding:var(--k4) var(--k5);border-radius:var(--bo-lon);background:var(--clay-bg);border:1px solid var(--clay-line)}
+.the-live h2{font-family:Lora,Georgia,serif;font-size:var(--c-lon)}
+.the-live .nutbam .btn{min-height:46px;font-size:var(--c-vua)}
+.viec-muc{display:flex;flex-direction:column}
+.viec-muc>h3{margin:var(--k3) 0 var(--k1);font-size:var(--c-nho);color:var(--ink3);text-transform:uppercase;letter-spacing:.05em}
+.tile.so0 .v{color:var(--ink3);font-size:var(--c-vua);font-family:inherit;font-weight:500}
+.doi-hinh{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--k3)}
+.doi-hinh>div{border:1px solid var(--line);border-radius:var(--bo);padding:var(--k3);display:flex;flex-direction:column;gap:var(--k1);background:var(--panel2)}
+.cot-ai-kenh{display:grid;grid-template-columns:minmax(0,1.6fr) 90px 110px 110px;gap:var(--k3);align-items:center;padding:var(--k3) 0;border-bottom:1px solid var(--line)}
+.cot-ai-kenh:last-child{border-bottom:0}
+.cot-ai-kenh .muted{font-size:var(--c-nho)}
+@media (max-width:900px){.cot-ai-kenh{grid-template-columns:1fr 1fr}}
+.buoc-thanh{display:flex;gap:var(--k2);flex-wrap:wrap;align-items:center}
+.buoc-thanh>span{display:inline-flex;align-items:center;gap:var(--k2);padding:var(--k1) var(--k3);border-radius:var(--bo-tron);border:1px solid var(--line2);color:var(--ink2);font-size:var(--c-thuong)}
+.buoc-thanh>span b{display:grid;place-items:center;width:22px;height:22px;border-radius:var(--bo-tron);background:var(--sunk);font-size:var(--c-nho)}
+.buoc-thanh>span.nay{border-color:var(--clay);background:var(--clay-bg);color:var(--clay);font-weight:600}
+.buoc-thanh>span.nay b{background:var(--clay);color:#fff}
+.buoc-thanh>span.xong b{background:var(--green);color:#fff}
+.the-che-do{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--k3)}
+.the-che-do button{display:flex;flex-direction:column;gap:var(--k2);align-items:flex-start;text-align:left;padding:var(--k4);border:1px solid var(--line2);border-radius:var(--bo-lon);background:var(--panel);cursor:pointer}
+.the-che-do button[aria-pressed="true"]{border-color:var(--clay);box-shadow:0 0 0 2px var(--clay-line);background:var(--clay-bg)}
+.the-che-do .hinh{font-size:30px;line-height:1}
+.luoi-ton{border-collapse:collapse;font-size:var(--c-thuong)}
+.luoi-ton th,.luoi-ton td{padding:var(--k1) var(--k2);text-align:center;border:1px solid var(--line)}
+.luoi-ton button{min-width:52px;min-height:34px;border:1px solid var(--line2);border-radius:var(--bo-nho);background:var(--green-bg);color:var(--green);font-weight:600;cursor:pointer}
+.luoi-ton button.it{background:var(--amber-bg);color:var(--amber)}
+.luoi-ton button.het{background:var(--red-bg);color:var(--red)}
+.luoi-ton button.khong{background:var(--sunk);color:var(--ink3)}
+.o-ngay{width:120px;text-align:center}.o-ngay.sai{border-color:var(--red);background:var(--red-bg)}
+.panel.nhay{box-shadow:0 0 0 3px var(--clay-line);transition:box-shadow .3s}
+
+/* BH11 F-127: tông giọng trên sóng (Cài đặt → Giọng Mai, Bắt đầu live bước 2) */
+.tong-giong{display:flex;flex-direction:column;gap:var(--k2);margin:var(--k3) 0}
+.tong-dau{display:flex;align-items:center;gap:var(--k2)}
+.tong-luoi{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:var(--k2)}
+.tong-the{display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:var(--bo);padding:var(--k2) var(--k3);cursor:pointer}
+.tong-the .muted{font-size:var(--c-nho)}
+.tong-the.dang{border-color:var(--clay);background:var(--clay-bg)}
+.tong-giong textarea{width:100%}

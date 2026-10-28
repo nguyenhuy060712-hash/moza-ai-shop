@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Moza · Thanh chữ</title>
+<!--
+  Thanh chữ (SPEC.md #90): OBS đặt đè lên camera phòng live và màn hình sản phẩm. Nền trong suốt.
+  Hiện món đang giới thiệu (số, tên, giá, cách chốt) và người vừa chốt — lấy từ /ws, chỉ dữ liệu thật.
+  Bố cục chung (F-75, bản 3.4 — mốc sau chỉ điền vào đúng ô): nhãn AI góc trên phải (luôn hiện khi có phiên mà AI không tắt,
+  không có nút tắt — Luật AI Điều 11); bình chọn góc trên trái (BH6); dải "Tiếp theo" / đính chính ngay trên ô món (BH6, BH9);
+  ô món góc dưới trái; người vừa chốt góc dưới phải; cảm ơn chạy ngang đáy (BH6).
+-->
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif; }
+  #mon { position: absolute; left: 48px; bottom: 44px; display: flex; align-items: stretch; border-radius: 22px; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,.35); transform: translateY(160%); transition: transform .5s cubic-bezier(.2,.8,.2,1); max-width: 1500px; }
+  #mon.hien { transform: none; }
+  #mon .so { background: #e8505b; color: #fff; font-size: 54px; font-weight: 900; padding: 18px 30px; display: flex; align-items: center; }
+  #mon .giua { background: rgba(255,255,255,.96); padding: 14px 32px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  #mon .ten { font-size: 40px; font-weight: 800; color: #2b1d1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #mon .chot { font-size: 30px; color: #8a766f; font-weight: 600; }
+  #mon .chot b { color: #e8505b; }
+  #mon .mau-nguoi { font-size: 26px; color: #5a4a44; font-weight: 700; }
+  #mon .mau-nguoi:empty { display: none; }
+  #mon .nguoi-chot { font-size: 26px; color: #e8505b; font-weight: 800; }
+  #mon .nguoi-chot:empty { display: none; }
+  #binh-chon { position: absolute; left: 48px; top: 28px; display: none; background: rgba(43,29,26,.9); color: #fff; font-size: 32px; font-weight: 800; padding: 12px 22px; border-radius: 14px; }
+  #binh-chon.hien { display: block; }
+  #binh-chon b { color: #ffb4a2; }
+  .tiep-theo { display: none; background: rgba(43,29,26,.88); color: #ffb4a2; font-size: 30px; font-weight: 800; padding: 8px 20px; border-radius: 12px; }
+  .tiep-theo.hien { display: block; }
+  #cam-on.hien { display: block; overflow: hidden; background: rgba(232,80,91,.92); color: #fff; font-size: 34px; font-weight: 800; padding: 10px 0; white-space: nowrap; }
+  #cam-on span { display: inline-block; padding-left: 100%; animation: chay-ngang 22s linear infinite; }
+  @keyframes chay-ngang { to { transform: translateX(-100%); } }
+  #mon .gia { background: #2b1d1a; color: #ffb4a2; font-size: 50px; font-weight: 900; padding: 18px 32px; display: flex; align-items: center; }
+  #nhan-ai { position: absolute; top: 28px; right: 36px; display: none; align-items: center; gap: 10px; background: rgba(20,14,12,.62);
+    color: #fff; font-size: 24px; font-weight: 600; padding: 8px 18px; border-radius: 999px; letter-spacing: .2px; }
+  #nhan-ai.hien { display: flex; }
+  #nhan-ai::before { content: 'AI'; background: #fff; color: #2b1d1a; font-size: 17px; font-weight: 900; border-radius: 6px; padding: 1px 6px; }
+  #binh-chon { position: absolute; top: 28px; left: 36px; display: none; }
+  #tren-mon { position: absolute; left: 48px; bottom: 176px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  #cam-on { position: absolute; left: 0; right: 0; bottom: 0; display: none; }
+  /* F-105: dòng đính chính do máy điền — con số chuẩn khi Mai lỡ nói sai (12 giây, người xem có độ trễ 15 giây vẫn thấy). */
+  #dinh-chinh { position: absolute; left: 48px; right: 48px; top: 96px; display: none; background: #fff; color: #2b1d1a; border-left: 14px solid #e8505b;
+    font-size: 40px; font-weight: 900; padding: 16px 28px; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+  #dinh-chinh.hien { display: block; }
+  #chot { position: absolute; right: 48px; bottom: 44px; display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+  .bao { background: rgba(43,29,26,.92); color: #fff; font-size: 36px; font-weight: 700; padding: 16px 28px; border-radius: 18px;
+    animation: vao .4s ease-out, ra .5s ease-in 5.5s forwards; }
+  .bao b { color: #ffb4a2; }
+  @keyframes vao { from { transform: translateX(120%); } to { transform: none; } }
+  @keyframes ra { to { opacity: 0; transform: translateY(20px); } }
+
+  /* ---------- Khung dọc 9:16 (1080×1920) ----------
+     Trên điện thoại, bình luận của Facebook phủ phần dưới khung live → ô món, người vừa chốt, đính chính dồn lên nửa trên. */
+  html.doc, html.doc body { width: 1080px; height: 1920px; }
+  body { position: relative; } /* khung bám theo trang 1080×1920 / 1920×1080, không theo cửa sổ trình duyệt */
+  html.doc #cam-on { top: 76px; bottom: auto; }
+  html.doc #mon { left: 32px; right: 32px; top: 140px; bottom: auto; max-width: none; transform: translateY(-260%); }
+  html.doc #mon.hien { transform: none; }
+  html.doc #mon .so { font-size: 46px; padding: 14px 22px; }
+  html.doc #mon .giua { padding: 12px 22px; flex: 1; }
+  html.doc #mon .ten { font-size: 36px; }
+  html.doc #mon .chot { font-size: 27px; }
+  html.doc #mon .gia { font-size: 42px; padding: 14px 22px; }
+  html.doc #tren-mon { left: 32px; top: 330px; bottom: auto; }
+  html.doc #dinh-chinh { left: 32px; right: 32px; top: 440px; font-size: 38px; }
+  html.doc #chot { right: 32px; top: 600px; bottom: auto; }
+  html.doc .bao { font-size: 32px; padding: 12px 22px; }
+</style>
+</head>
+<body>
+<div id="nhan-ai"></div>
+<div id="binh-chon"></div>
+<div id="tren-mon"></div>
+<div id="cam-on"></div>
+<div id="dinh-chinh" role="status"></div>
+<div id="mon"><div class="so"></div><div class="giua"><div class="ten"></div><div class="chot"></div><div class="mau-nguoi"></div><div class="nguoi-chot"></div></div><div class="gia"></div></div>
+<div id="chot"></div>
+<script>
+'use strict';
+(() => {
+  const mon = document.getElementById('mon');
+  const chot = document.getElementById('chot');
+  const nhanAi = document.getElementById('nhan-ai');
+  function hienNhanAi(n) {
+    if (!n) return;
+    nhanAi.textContent = n.chu || '';
+    nhanAi.classList.toggle('hien', !!n.hien);
+  }
+  const q = (s) => mon.querySelector(s);
+  function hienMon(h) {
+    const s = h.san_pham;
+    if (h.mau === 'cho') { mon.classList.remove('hien'); return; }
+    if (!s) return; // danh sách: giữ món cũ
+    q('.so').textContent = `Số ${s.so}`;
+    q('.ten').textContent = s.ten;
+    q('.chot').replaceChildren('Bình luận ', Object.assign(document.createElement('b'), { textContent: s.cu_phap }), ' để đặt', ...(s.doi_tra ? [' · ', s.doi_tra] : [])); // F-95
+    q('.gia').textContent = s.nhan_gia ? `${s.gia} · tới hết buổi` : s.gia; // F-93: giá live
+    q('.mau-nguoi').textContent = s.mau_nguoi || '';
+    q('.nguoi-chot').textContent = [s.nguoi_chot ? `${s.nguoi_chot} người chốt buổi này` : '', s.vua_size || ''].filter(Boolean).join(' · '); // F-100
+    mon.classList.add('hien');
+  }
+  // F-83: dòng cảm ơn người chốt chạy ngang đáy (chỉ tên gọi, không món, không tiền).
+  const camOn = document.getElementById('cam-on');
+  let henCamOn = null;
+  function hienCamOn(m) {
+    if (!m?.ten?.length) return;
+    camOn.replaceChildren(Object.assign(document.createElement('span'), { textContent: `Cảm ơn ${m.ten.join(', ')} đã chốt đơn buổi này 🙏` }));
+    camOn.classList.add('hien');
+    clearTimeout(henCamOn);
+    henCamOn = setTimeout(() => camOn.classList.remove('hien'), (m.giay || 45) * 1000);
+  }
+  // F-85: "Tiếp theo: váy số 15" ngay trên ô món.
+  const trenMon = document.getElementById('tren-mon');
+  const eTiep = Object.assign(document.createElement('div'), { className: 'tiep-theo' });
+  trenMon.append(eTiep);
+  function hienTiepTheo(m) {
+    eTiep.textContent = m?.chu || '';
+    eTiep.classList.toggle('hien', !!m?.chu);
+  }
+  // F-86: "Bình chọn: A · Be 12 | B · Đen 9 · còn 34 giây"; hết giờ "Be thắng!" 20 giây.
+  const binhChon = document.getElementById('binh-chon');
+  let henBc = null;
+  function hienBinhChon(m) {
+    clearTimeout(henBc);
+    if (m?.dang) {
+      binhChon.replaceChildren('Bình chọn: ', ...m.lua_chon.flatMap((x, i) => [i ? ' | ' : '', Object.assign(document.createElement('b'), { textContent: `${x.chu} · ${x.mau}` }), ` ${x.phieu}`]), ` · còn ${m.con_giay} giây`);
+      binhChon.classList.add('hien');
+    } else if (m?.ket_qua && new Date(m.ket_qua.hien_den) > new Date()) {
+      binhChon.textContent = m.ket_qua.thang ? `${m.ket_qua.thang} thắng!` : 'Hòa — người dẫn chọn';
+      binhChon.classList.add('hien');
+      henBc = setTimeout(() => binhChon.classList.remove('hien'), new Date(m.ket_qua.hien_den) - new Date());
+    } else binhChon.classList.remove('hien');
+  }
+  function baoChot(m) {
+    const d = document.createElement('div');
+    d.className = 'bao';
+    d.append('🎉 ', Object.assign(document.createElement('b'), { textContent: m.ten || 'Một bạn' }), ` vừa chốt ${m.mon || ''}`.trimEnd());
+    chot.append(d);
+    while (chot.children.length > 3) chot.firstChild.remove();
+    setTimeout(() => d.remove(), 6200);
+  }
+  // Khung dọc 9:16 (mặc định, 1080×1920) hoặc ngang 16:9 — theo Cài đặt → OBS; đổi là trang đổi bố cục ngay.
+  const datKhung = (k) => document.documentElement.classList.toggle('doc', k !== 'ngang');
+  datKhung(new URLSearchParams(location.search).get('khung') || 'doc');
+  async function taiLai() {
+    try { const r = await fetch('/api/man-hinh'); if (r.ok) { const j = await r.json(); datKhung(j.obs_cai_dat?.khung); hienMon(j.hien); hienNhanAi(j.nhan_ai); hienTiepTheo(j.tiep_theo); } } catch { /* chưa chạy */ }
+  }
+  const dinhChinh = document.getElementById('dinh-chinh');
+  let henDc = null;
+  function hienDinhChinh(m) {
+    dinhChinh.textContent = m.chu;
+    dinhChinh.classList.add('hien');
+    clearTimeout(henDc);
+    henDc = setTimeout(() => dinhChinh.classList.remove('hien'), (m.giay || 12) * 1000);
+  }
+  let lanThu = 0;
+  function noi() {
+    const ws = new WebSocket(`ws://${location.host}/ws`);
+    ws.onopen = () => { lanThu = 0; taiLai(); };
+    ws.onmessage = (ev) => {
+      if (typeof ev.data !== 'string') return;
+      let m;
+      try { m = JSON.parse(ev.data); } catch { return; }
+      if (m.type === 'mhsp.hien') hienMon(m);
+      else if (m.type === 'mhsp.chot') baoChot(m);
+      else if (m.type === 'mhsp.nhan_ai') hienNhanAi(m);
+      else if (m.type === 'mhsp.cam_on') hienCamOn(m);
+      else if (m.type === 'mhsp.tiep_theo') hienTiepTheo(m);
+      else if (m.type === 'mhsp.binh_chon') hienBinhChon(m);
+      else if (m.type === 'mhsp.dinh_chinh') hienDinhChinh(m);
+      else if (m.type === 'mhsp.khung') datKhung(m.khung);
+    };
+    ws.onclose = () => setTimeout(noi, Math.min(10000, 1000 * 2 ** lanThu++));
+  }
+  noi();
+})();
+</script>
+</body>
+</html>

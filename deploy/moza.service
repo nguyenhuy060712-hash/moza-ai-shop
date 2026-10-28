@@ -1,0 +1,22 @@
+# Chạy Moza AI Shop như một dịch vụ trên VPS Linux (systemd). Chép vào /etc/systemd/system/moza.service,
+# sửa User và WorkingDirectory cho đúng máy, rồi: sudo systemctl daemon-reload && sudo systemctl enable --now moza
+[Unit]
+Description=Moza AI Shop
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=moza
+WorkingDirectory=/opt/moza-ai-shop
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+# Địa chỉ https của shop (trùng tên miền trong Caddyfile): MOZA chỉ nhận thêm đúng địa chỉ này, nơi khác vẫn chặn.
+Environment=MOZA_DIA_CHI_NGOAI=https://shop.ten-mien-cua-ban.vn
+# Giới hạn bộ nhớ như bản xem thử trên laptop (1 GB đủ cho một shop).
+Environment=NODE_OPTIONS=--max-old-space-size=1024
+
+[Install]
+WantedBy=multi-user.target

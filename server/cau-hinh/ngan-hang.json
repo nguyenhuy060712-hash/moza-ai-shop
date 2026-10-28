@@ -1,0 +1,257 @@
+{
+ "_ghi_chu": "Danh sách ngân hàng nhận chuyển khoản VietQR (SPEC.md F-89). Lấy từ api.vietqr.io/v2/banks ngày 28/9/2026 (chỉ ngân hàng hỗ trợ chuyển khoản). bin = mã BIN dựng ảnh QR; ma = mã VietQR; ten_ngan = tên hiện trong ô chọn.",
+ "ngan_hang": [
+  {
+   "bin": "970436",
+   "ma": "VCB",
+   "ten_ngan": "Vietcombank",
+   "ten": "Ngân hàng TMCP Ngoại Thương Việt Nam"
+  },
+  {
+   "bin": "970415",
+   "ma": "ICB",
+   "ten_ngan": "VietinBank",
+   "ten": "Ngân hàng TMCP Công thương Việt Nam"
+  },
+  {
+   "bin": "970418",
+   "ma": "BIDV",
+   "ten_ngan": "BIDV",
+   "ten": "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam"
+  },
+  {
+   "bin": "970405",
+   "ma": "VBA",
+   "ten_ngan": "Agribank",
+   "ten": "Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam"
+  },
+  {
+   "bin": "970407",
+   "ma": "TCB",
+   "ten_ngan": "Techcombank",
+   "ten": "Ngân hàng TMCP Kỹ thương Việt Nam"
+  },
+  {
+   "bin": "970422",
+   "ma": "MB",
+   "ten_ngan": "MBBank",
+   "ten": "Ngân hàng TMCP Quân đội"
+  },
+  {
+   "bin": "970416",
+   "ma": "ACB",
+   "ten_ngan": "ACB",
+   "ten": "Ngân hàng TMCP Á Châu"
+  },
+  {
+   "bin": "970432",
+   "ma": "VPB",
+   "ten_ngan": "VPBank",
+   "ten": "Ngân hàng TMCP Việt Nam Thịnh Vượng"
+  },
+  {
+   "bin": "970423",
+   "ma": "TPB",
+   "ten_ngan": "TPBank",
+   "ten": "Ngân hàng TMCP Tiên Phong"
+  },
+  {
+   "bin": "970403",
+   "ma": "STB",
+   "ten_ngan": "Sacombank",
+   "ten": "Ngân hàng TMCP Sài Gòn Thương Tín"
+  },
+  {
+   "bin": "970437",
+   "ma": "HDB",
+   "ten_ngan": "HDBank",
+   "ten": "Ngân hàng TMCP Phát triển Thành phố Hồ Chí Minh"
+  },
+  {
+   "bin": "970441",
+   "ma": "VIB",
+   "ten_ngan": "VIB",
+   "ten": "Ngân hàng TMCP Quốc tế Việt Nam"
+  },
+  {
+   "bin": "970443",
+   "ma": "SHB",
+   "ten_ngan": "SHB",
+   "ten": "Ngân hàng TMCP Sài Gòn - Hà Nội"
+  },
+  {
+   "bin": "970448",
+   "ma": "OCB",
+   "ten_ngan": "OCB",
+   "ten": "Ngân hàng TMCP Phương Đông"
+  },
+  {
+   "bin": "970426",
+   "ma": "MSB",
+   "ten_ngan": "MSB",
+   "ten": "Ngân hàng TMCP Hàng Hải Việt Nam"
+  },
+  {
+   "bin": "970440",
+   "ma": "SEAB",
+   "ten_ngan": "SeABank",
+   "ten": "Ngân hàng TMCP Đông Nam Á"
+  },
+  {
+   "bin": "970449",
+   "ma": "LPB",
+   "ten_ngan": "LPBank",
+   "ten": "Ngân hàng TMCP Lộc Phát Việt Nam"
+  },
+  {
+   "bin": "970431",
+   "ma": "EIB",
+   "ten_ngan": "Eximbank",
+   "ten": "Ngân hàng TMCP Xuất Nhập khẩu Việt Nam"
+  },
+  {
+   "bin": "546034",
+   "ma": "CAKE",
+   "ten_ngan": "CAKE",
+   "ten": "TMCP Việt Nam Thịnh Vượng - Ngân hàng số CAKE by VPBank"
+  },
+  {
+   "bin": "963388",
+   "ma": "TIMO",
+   "ten_ngan": "Timo",
+   "ten": "Ngân hàng số Timo by Ban Viet Bank (Timo by Ban Viet Bank)"
+  },
+  {
+   "bin": "970425",
+   "ma": "ABB",
+   "ten_ngan": "ABBANK",
+   "ten": "Ngân hàng TMCP An Bình"
+  },
+  {
+   "bin": "970409",
+   "ma": "BAB",
+   "ten_ngan": "BacABank",
+   "ten": "Ngân hàng TMCP Bắc Á"
+  },
+  {
+   "bin": "970438",
+   "ma": "BVB",
+   "ten_ngan": "BaoVietBank",
+   "ten": "Ngân hàng TMCP Bảo Việt"
+  },
+  {
+   "bin": "422589",
+   "ma": "CIMB",
+   "ten_ngan": "CIMB",
+   "ten": "Ngân hàng TNHH MTV CIMB Việt Nam"
+  },
+  {
+   "bin": "970446",
+   "ma": "COOPBANK",
+   "ten_ngan": "COOPBANK",
+   "ten": "Ngân hàng Hợp tác xã Việt Nam"
+  },
+  {
+   "bin": "668888",
+   "ma": "KBank",
+   "ten_ngan": "KBank",
+   "ten": "Ngân hàng Đại chúng TNHH Kasikornbank"
+  },
+  {
+   "bin": "970452",
+   "ma": "KLB",
+   "ten_ngan": "KienLongBank",
+   "ten": "Ngân hàng TMCP Kiên Long"
+  },
+  {
+   "bin": "970414",
+   "ma": "MBV",
+   "ten_ngan": "MBV",
+   "ten": "Ngân hàng TNHH MTV Việt Nam Hiện Đại"
+  },
+  {
+   "bin": "971025",
+   "ma": "momo",
+   "ten_ngan": "MoMo",
+   "ten": "CTCP Dịch Vụ Di Động Trực Tuyến"
+  },
+  {
+   "bin": "970428",
+   "ma": "NAB",
+   "ten_ngan": "NamABank",
+   "ten": "Ngân hàng TMCP Nam Á"
+  },
+  {
+   "bin": "970419",
+   "ma": "NCB",
+   "ten_ngan": "NCB",
+   "ten": "Ngân hàng TMCP Quốc Dân"
+  },
+  {
+   "bin": "970430",
+   "ma": "PGB",
+   "ten_ngan": "PGBank",
+   "ten": "Ngân hàng TMCP Thịnh vượng và Phát triển"
+  },
+  {
+   "bin": "970412",
+   "ma": "PVCB",
+   "ten_ngan": "PVcomBank",
+   "ten": "Ngân hàng TMCP Đại Chúng Việt Nam"
+  },
+  {
+   "bin": "971133",
+   "ma": "PVDB",
+   "ten_ngan": "PVcomBank Pay",
+   "ten": "Ngân hàng TMCP Đại Chúng Việt Nam Ngân hàng số"
+  },
+  {
+   "bin": "970400",
+   "ma": "SGICB",
+   "ten_ngan": "SaigonBank",
+   "ten": "Ngân hàng TMCP Sài Gòn Công Thương"
+  },
+  {
+   "bin": "970429",
+   "ma": "SCB",
+   "ten_ngan": "SCB",
+   "ten": "Ngân hàng TMCP Sài Gòn"
+  },
+  {
+   "bin": "970424",
+   "ma": "SHBVN",
+   "ten_ngan": "ShinhanBank",
+   "ten": "Ngân hàng TNHH MTV Shinhan Việt Nam"
+  },
+  {
+   "bin": "546035",
+   "ma": "Ubank",
+   "ten_ngan": "Ubank",
+   "ten": "TMCP Việt Nam Thịnh Vượng - Ngân hàng số Ubank by VPBank"
+  },
+  {
+   "bin": "970427",
+   "ma": "VAB",
+   "ten_ngan": "VietABank",
+   "ten": "Ngân hàng TMCP Việt Á"
+  },
+  {
+   "bin": "970433",
+   "ma": "VIETBANK",
+   "ten_ngan": "VietBank",
+   "ten": "Ngân hàng TMCP Việt Nam Thương Tín"
+  },
+  {
+   "bin": "970454",
+   "ma": "VCCB",
+   "ten_ngan": "VietCapitalBank",
+   "ten": "Ngân hàng TMCP Bản Việt"
+  },
+  {
+   "bin": "970457",
+   "ma": "WVN",
+   "ten_ngan": "Woori",
+   "ten": "Ngân hàng TNHH MTV Woori Việt Nam"
+  }
+ ]
+}

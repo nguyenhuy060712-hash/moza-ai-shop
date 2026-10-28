@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moza AI Shop</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="font/BeVietnamPro-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="font/phong.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/gd1.css">
+<link rel="stylesheet" href="css/nd-san-khau.css">
+</head>
+<body>
+
+<div class="khung">
+  <aside class="menu" id="menu">
+    <a class="wordmark" href="#/hom-nay"><b>Moza</b> <span class="chu-menu">AI Shop</span></a>
+    <nav class="nav" id="nav" aria-label="Màn hình"></nav>
+  </aside>
+
+  <div class="phai">
+    <header class="bar">
+      <div class="noi-voi-mai" id="noiVoiMai"></div>
+      <span class="grow"></span>
+      <div class="trangthai" id="trangThai" aria-live="polite"></div>
+      <label class="khancap" id="khanCapNhan" title="Bật thì AI không gửi hay nói gì ra ngoài nữa">
+        <input type="checkbox" id="khanCap" role="switch" aria-label="Dừng mọi thứ">
+        <span>Dừng mọi thứ</span>
+      </label>
+    </header>
+    <div class="bang do" id="bangKhanCap" role="alert" hidden>
+      <span id="bangKhanCapChu">ĐANG DỪNG MỌI THỨ — AI không chạy, không gửi, không nói gì ra ngoài. Tắt công tắc ở góc phải để chạy lại.</span>
+    </div>
+    <!-- F-72: "Dừng AI" (tự bật khi chạm trần chi phí — chốt đơn bằng mã vẫn chạy) và dải vàng từ 80% trần. -->
+    <div class="bang do" id="bangDungAi" role="alert" hidden>
+      <span id="bangDungAiChu">AI tạm dừng vì chạm trần chi phí — chốt đơn vẫn chạy.</span>
+      <label style="display:flex;gap:6px;align-items:center">Trần mới (USD/ngày) <input id="bangDungAiTran" type="number" min="1" step="1" style="width:80px"></label>
+      <button class="btn small" type="button" id="bangDungAiNut">Chạy AI tiếp</button>
+    </div>
+    <div class="bang vang" id="bangChiPhi" role="status" hidden><span id="bangChiPhiChu"></span> <a href="#/cai-dat/tro-ly-ai/van-hanh">Xem chi phí</a></div>
+    <!-- F-73: Meta tạm khóa nhắn tin của Page (lỗi 10/1893063 hoặc Page Integrity) — không phải "thiếu quyền". -->
+    <div class="bang do" id="bangPageCam" role="alert" hidden>
+      <span id="bangPageCamChu"></span>
+      <a href="#/don" style="color:#fff" id="bangPageCamNhanBu">Xem Nhắn bù</a>
+    </div>
+    <div class="bang do" id="bangFacebook" role="alert" hidden>
+      <span>MÃ FACEBOOK HẾT HẠN HOẶC BỊ THU HỒI — MOZA đã dừng mọi việc gửi ra Facebook. Vào Cài đặt → Facebook để lấy mã mới.</span>
+      <a href="#/cai-dat" style="color:#fff">Mở Cài đặt</a>
+    </div>
+    <div class="bang vang" id="bangBanCu" hidden>
+      Phần mềm vừa được cập nhật. Đóng cửa sổ đen rồi bấm đúp CHAY PHAN MEM.bat để chạy bản mới.
+    </div>
+
+    <main class="main" id="main"></main>
+  </div>
+</div>
+<aside class="nvm-khung panel" id="nvmKhung" hidden aria-live="polite"></aside>
+
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

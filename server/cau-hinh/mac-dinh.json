@@ -1,0 +1,188 @@
+{
+  "_ghi_chu": "Danh sách lựa chọn trong màn hình Cài đặt. Sửa file này để thêm model mới, không cần sửa mã (SPEC.md mục 6, #26). Tra 23/9/2026; bản 3.1 thêm gemini-3.5-flash-lite, gpt-6-astra, claude-fable-5-1 (tra 25–26/9/2026, #86); BH10 thêm gpt-6.1-sol, gpt-6.1-terra, claude-sonnet-5-5, claude-haiku-5-5 (tra 28/10/2026, F-111).",
+  "nha": {
+    "gemini": {
+      "ten": "Google Gemini",
+      "model": [
+        "gemini-3.8-flash",
+        "gemini-3.5-flash-lite"
+      ]
+    },
+    "openai": {
+      "ten": "OpenAI",
+      "model": [
+        "gpt-6-luna",
+        "gpt-6-sol",
+        "gpt-6-astra",
+        "gpt-6.1-sol",
+        "gpt-6.1-terra"
+      ]
+    },
+    "anthropic": {
+      "ten": "Anthropic Claude",
+      "model": [
+        "claude-sonnet-5",
+        "claude-opus-5-5",
+        "claude-fable-5-1",
+        "claude-sonnet-5-5",
+        "claude-haiku-5-5"
+      ]
+    }
+  },
+  "muc_suy_nghi": {
+    "tat": "Tắt",
+    "thap": "Thấp",
+    "vua": "Vừa",
+    "cao": "Cao"
+  },
+  "mieng": [
+    {
+      "model": "gpt-live-1",
+      "nha": "openai",
+      "ten": "GPT Live 1"
+    },
+    {
+      "model": "gemini-3.8-live",
+      "nha": "gemini",
+      "ten": "Gemini 3.8 Live"
+    },
+    {
+      "model": "gemini-3.8-live-extended-thinking",
+      "nha": "gemini",
+      "ten": "Gemini 3.8 Live Extended Thinking"
+    },
+    {
+      "model": "mieng-gia",
+      "nha": "gia",
+      "ten": "Miệng giả (tập, không tốn tiền)",
+      "chi_dien_tap": true
+    }
+  ],
+  "mieng_mac_dinh": {
+    "model": "gpt-live-1",
+    "giong": {
+      "openai": "marin",
+      "gemini": "Zephyr"
+    }
+  },
+  "doc_giong": {
+    "_ghi_chu": "Máy đọc giọng cho câu chen của Đội AI, người dẫn giả ở Phòng diễn tập, nghe thử giọng. BH10 (F-108, 28/10/2026): 'openai' = gpt-realtime-2.1-mini qua Realtime API (máy cũ OpenAI tắt 6/1/2027) — so chữ chép lại với câu gốc trước khi phát; 'elevenlabs' = eleven_v4 (cần khóa ElevenLabs và chọn giọng ở Cài đặt → Đội AI dẫn); 'gemini' = Gemini TTS; 'gia' = máy đọc giả 0 đồng (bản xem thử --ai-gia tự dùng). Thiếu khóa nhà đã chọn thì câu hiện chữ, không tự đổi nhà. Nhạc hiệu AI sáng tác vẫn cần khóa Google.",
+    "nha": "openai"
+  },
+  "ten_ai": "Mai - Trợ lý bán hàng",
+  "nhac_sao_luu_sau_ngay": 7,
+  "do_tre_phat_giay": 15,
+  "dien_tap_model": {
+    "_ghi_chu": "#88 (26/9/2026): Phòng diễn tập dùng model rẻ cho các Agent trả lời nhiều lượt, để một buổi tập 30 phút còn khoảng 0,3–0,5 USD. Bán thật vẫn dùng model trong Cài đặt. Sửa ở đây nếu muốn đổi.",
+    "tu_van": {
+      "nha": "openai",
+      "model": "gpt-6-luna",
+      "muc_suy_nghi": "thap",
+      "nha_du_phong": "openai",
+      "model_du_phong": "gpt-6-sol"
+    }
+  },
+  "doi_ai": {
+    "_ghi_chu": "F-67 (3.4): trần câu chen của Đội AI mỗi buổi — máy đọc câu chen có 100 lượt/ngày (Google), chừa 40 lượt cho buổi tập, buổi thứ hai và phần mềm khác dùng chung khóa. Từ 80% chỉ còn câu ưu tiên; chạm trần thì câu chen hiện chữ cho người dẫn đọc.",
+    "tran_cau_chen_moi_buoi": 60
+  },
+  "lien_he": {
+    "_ghi_chu": "F-66 (#96): giới hạn liên hệ chủ động để khách không thấy phiền, Page không bị báo spam. Giờ Việt Nam.",
+    "goi_ten_moi_don": 1,
+    "nhac_moi_don": 2,
+    "bao_huy_moi_don": 1,
+    "moi_chao_moi_ngay": 1,
+    "cham_soc_moi_ngay": 1,
+    "gio_tu": 7,
+    "gio_den": 22
+  },
+  "nhat_ky_song": {
+    "_ghi_chu": "F-80 (#108): nhật ký buổi live (chỉ chữ) giữ chừng này ngày rồi tự xóa; bình luận không gắn đơn cùng hạn (xóa nội dung và tên, giữ số đếm). Luật sư xem lại thời hạn (#127).",
+    "giu_ngay": 90
+  },
+  "the_nhac": {
+    "_ghi_chu": "F-81: thẻ nhắc người dẫn khi khách xin xem — gom cùng loại, cùng món trong gom_giay; tự tắt sau tat_sau_giay kể từ lần cập nhật cuối; tối đa hang_toi_da thẻ chờ; câu Đội AI / Mai mỗi loại cách nhau cach_cau_giay.",
+    "gom_giay": 60,
+    "tat_sau_giay": 60,
+    "hang_toi_da": 3,
+    "cach_cau_giay": 120
+  },
+  "tu_van_size": {
+    "_ghi_chu": "F-82: tư vấn size bằng mã — người hỏi cùng món trong gom_giay (sau người đầu) gom thành một câu, tối đa toi_da_ten tên.",
+    "gom_giay": 20,
+    "toi_da_ten": 3
+  },
+  "tren_song": {
+    "_ghi_chu": "F-83 (#111): Thanh chữ hiện \"N người chốt buổi này\" từ nguong_nguoi_chot người; Đội AI / Mai đọc ở các mốc moc_doc; dòng cảm ơn chạy cam_on.giay giây, tối đa cam_on.toi_da_ten tên.",
+    "nguong_nguoi_chot": 5,
+    "moc_doc": [
+      5,
+      10,
+      20,
+      50
+    ],
+    "cam_on": {
+      "giay": 45,
+      "toi_da_ten": 40
+    }
+  },
+  "luong_lu": {
+    "_ghi_chu": "F-84: gỡ lưỡng lự khi từ toi_thieu_nguoi người khác nhau cùng kiểu, cùng món trong cua_so_phut phút; mỗi kiểu mỗi món gỡ tối đa một lần mỗi go_lai_sau_phut phút; phải có nguồn thật.",
+    "toi_thieu_nguoi": 2,
+    "cua_so_phut": 5,
+    "go_lai_sau_phut": 10
+  },
+  "nhip_ban": {
+    "_ghi_chu": "F-85: một gợi ý nhịp bán cho người dẫn (Chỉ gợi ý, Co-host được nói) — xem mỗi moi_giay giây, cách nhau ít nhất cach_phut phút; món nóng: nong_nguoi người chốt trong nong_phut phút; món nguội: ở món nguoi_phut phút, 3 phút không ai chốt, không ai hỏi.",
+    "moi_giay": 20,
+    "cach_phut": 3,
+    "nong_nguoi": 3,
+    "nong_phut": 2,
+    "nguoi_phut": 4
+  },
+  "tiep_theo_sau_giay": 60,
+  "binh_chon": {
+    "_ghi_chu": "F-86: bình chọn bằng bình luận — giay giây mỗi lần, tối đa toi_da_moi_buoi lần mỗi buổi, 2–toi_da_lua_chon lựa chọn; kết quả hiện ket_giay giây. Không quà (khuyến mại phải đăng ký).",
+    "giay": 60,
+    "toi_da_moi_buoi": 2,
+    "toi_da_lua_chon": 3,
+    "ket_giay": 20
+  },
+  "kiem_loi_noi": {
+    "_ghi_chu": "F-105: kiểm lời Mai trên sóng (tắt cả tính năng bằng hook kiem-loi-noi ở Agent & Skill → Hook)",
+    "tu_dinh_chinh": true,
+    "nguong_ha_goi_y": 3,
+    "lap_lai_giay": 60,
+    "giu_tieng_ms": 0,
+    "hien_thanh_chu_giay": 12,
+    "cho_so_tron_ms": 600,
+    "them_khoang_giay": 60,
+    "cau_noi": "Mai xin nói lại cho đúng: {dung}.",
+    "cau_thanh_chu": "Đính chính: {dung}"
+  },
+  "nhin_mon": {
+    "_ghi_chu": "F-107: MOZA nhìn qua OBS (tắt mặc định, bật theo buổi). Ngưỡng đổi hình 12% là số tạm — chỉnh sau phép thử thật.",
+    "chu_ky_giay": 2.5,
+    "cach_toi_thieu_giay": 5,
+    "toi_da_lan_gio": 600,
+    "canh_anh": 512,
+    "anh_so": [
+      32,
+      18
+    ],
+    "nguong_doi_hinh": 0.12,
+    "can_lien_tiep": 2,
+    "an_goi_y_giay": 20,
+    "bo_qua_giay": 60,
+    "toi_da_mon": 10,
+    "cach": "decisions"
+  },
+  "mai_quyet_dinh": {
+    "_ghi_chu": "BH11 F-112: GPT-Live + Decisions (session.triggers loại decisions trên chữ Mai nói) — Mai tự đổi thẻ món / chiếu bảng size khi tin cậy ≥ nguong, chỉ ở Mai dẫn chính / Mai nói cùng. Phép thử thật 28/10/2026 chạy được (SPEC mục 12) → bật; tốn thêm ~0,01 USD / phút GPT-Live (token vào của Decisions). Muốn tắt: đặt bat = false.",
+    "bat": true,
+    "nguong": 0.8,
+    "lien_tiep": 2,
+    "nguong_size": 0.85,
+    "size_cach_giay": 30
+  }
+}

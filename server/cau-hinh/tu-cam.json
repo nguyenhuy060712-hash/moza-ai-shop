@@ -1,0 +1,161 @@
+{
+  "_ghi_chu": "Từ cấm K11 (SPEC.md F-79, #107) — Bộ kiểm tra chặn câu AI có các cụm này; Đội AI bỏ lượt thoại có chúng; lưu sản phẩm có chúng thì cảnh báo vàng. So trên chữ bỏ dấu, chữ thường, nguyên từ (không bắt chữ con). 'luon_chan' = luôn chặn; 'can_nguon' = chặn trừ khi cụm nằm nguyên văn trong đoạn trích của thẻ sản phẩm (ô người đã xác nhận) hoặc Sổ tay — chủ shop tự ghi thì tự giữ giấy tờ. Cách gọi món ('áo số 1', 'số 1 màu đen') không tính là 'số 1'. Claude Code soạn 28/9/2026 theo Luật Quảng cáo 2012 (sửa đổi 75/2025) Điều 8 (cấm dùng từ 'nhất', 'duy nhất', 'số 1' khi không có tài liệu chứng minh; cấm so sánh trực tiếp với hàng hóa cùng loại của người khác) và Luật TMĐT 122/2025 Điều 23, 24 — CẦN LUẬT SƯ XEM (#127). Nhóm 'chi_cong_khai' (F-91) chỉ chặn trên sóng và bình luận công khai; trong Messenger thì không.",
+  "nhom": [
+    {
+      "ma": "thuong_hieu",
+      "ten": "thương hiệu khác, hàng nhái",
+      "luon_chan": true,
+      "goi_y": "không nhắc thương hiệu khác, không gọi là hàng hiệu / auth / rep khi shop không bán hàng chính hãng có giấy tờ",
+      "cum": [
+        "dang zara",
+        "zara",
+        "gucci",
+        "chanel",
+        "lv",
+        "louis vuitton",
+        "dior",
+        "uniqlo",
+        "h&m",
+        "prada",
+        "hermes",
+        "balenciaga",
+        "nike",
+        "adidas",
+        "auth",
+        "authentic",
+        "hang hieu",
+        "hang xin",
+        "rep 1 1",
+        "rep11",
+        "super fake",
+        "fake",
+        "hang fake",
+        "like auth",
+        "si fake",
+        "hang nhai"
+      ]
+    },
+    {
+      "ma": "tuyet_doi",
+      "ten": "từ tuyệt đối",
+      "luon_chan": true,
+      "goi_y": "bỏ chữ \"nhất\", \"số 1\", \"duy nhất\" — nói cái có thật (\"vải linen mát\", \"bán chạy trong buổi này\" nếu có số)",
+      "cum": [
+        "so 1",
+        "so mot",
+        "tot nhat",
+        "re nhat",
+        "dep nhat",
+        "chat nhat",
+        "xin nhat",
+        "duy nhat",
+        "nhat thi truong",
+        "hang dau",
+        "dinh nhat",
+        "ban chay nhat",
+        "gia tot nhat",
+        "chat luong nhat",
+        "khong dau re hon",
+        "khong dau bang"
+      ]
+    },
+    {
+      "ma": "so_sanh",
+      "ten": "so sánh với nơi khác",
+      "luon_chan": true,
+      "goi_y": "không so với shop, chợ, nơi bán khác — chỉ nói về hàng của shop",
+      "cum": [
+        "shop khac",
+        "re hon cho khac",
+        "re hon shop khac",
+        "ngoai cho",
+        "ben kia ban",
+        "cho khac ban",
+        "tot hon shop khac",
+        "dep hon shop khac",
+        "cac shop khac",
+        "noi khac ban"
+      ]
+    },
+    {
+      "ma": "xuat_xu",
+      "ten": "xuất xứ",
+      "luon_chan": false,
+      "goi_y": "chỉ nói xuất xứ khi thẻ sản phẩm ghi (và shop có giấy tờ) — trích đúng dòng đó",
+      "cum": [
+        "hang xuat khau",
+        "vnxk",
+        "xuat khau",
+        "quang chau loai 1",
+        "qc loai 1",
+        "hang quang chau",
+        "hang thai",
+        "hang han",
+        "hang nhat",
+        "hang au",
+        "made in",
+        "hang ngoai",
+        "hang nhap khau",
+        "nhap khau"
+      ]
+    },
+    {
+      "ma": "cong_dung",
+      "ten": "công dụng",
+      "luon_chan": false,
+      "goi_y": "chỉ nói công dụng khi thẻ sản phẩm hoặc Sổ tay ghi (và shop có giấy chứng nhận) — trích đúng dòng đó",
+      "cum": [
+        "khang khuan",
+        "chong nang",
+        "chong tia uv",
+        "chong uv",
+        "khu mui",
+        "thai doc",
+        "giam mo",
+        "giam can",
+        "chua benh",
+        "chong muoi",
+        "diet khuan",
+        "khang nam",
+        "tri mun",
+        "tri nam",
+        "tri hoi nach"
+      ]
+    },
+    {
+      "ma": "lich_su_mua",
+      "ten": "lịch sử mua của khách",
+      "luon_chan": true,
+      "chi_cong_khai": true,
+      "goi_y": "không nhắc chuyện khách đã mua / khách quen trên sóng hay bình luận công khai — chỉ người của shop thấy nhãn này",
+      "cum": [
+        "khach quen",
+        "khach ruot",
+        "quay lai roi",
+        "lai quay lai",
+        "lan truoc chi mua",
+        "lan truoc anh mua",
+        "lan truoc em mua",
+        "lan truoc ban mua",
+        "lan truoc mua",
+        "mua lan thu",
+        "mua may lan roi"
+      ]
+    },
+    {
+      "ma": "gap_gap",
+      "ten": "hối thúc về giá",
+      "luon_chan": true,
+      "goi_y": "giá live chỉ nói \"tới hết buổi\" — không \"chỉ hôm nay\", \"lần cuối\", \"giờ vàng\" ",
+      "cum": [
+        "chi hom nay",
+        "lan cuoi",
+        "duy nhat hom nay",
+        "gio vang",
+        "chi con hom nay",
+        "sale soc",
+        "xa kho"
+      ]
+    }
+  ]
+}

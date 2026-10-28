@@ -1,0 +1,23 @@
+{
+  "name": "moza-ai-shop",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Moza AI Shop — phần mềm vận hành livestream bán hàng trên Facebook Page",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "demo": "node scripts/nap-demo.js",
+    "test": "node --test --test-concurrency=4 test/"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "@google/genai": "^2.24.0",
+    "express": "^5.2.1",
+    "mpg123-decoder": "^1.0.3",
+    "openai": "^7.45.1",
+    "ws": "^8.21.3"
+  },
+  "engines": {
+    "node": ">=26"
+  }
+}
